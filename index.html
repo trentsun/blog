@@ -155,6 +155,106 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java工具集LTS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/21/Java%E5%B7%A5%E5%85%B7%E9%9B%86LTS/">Java工具集LTS</a>
+    </h1>
+  
+
+	<!--显示阅读次数-->
+	
+        
+        <a href="/2020/02/21/Java%E5%B7%A5%E5%85%B7%E9%9B%86LTS/" class="archive-article-date">
+  	<time datetime="2020-02-21T00:01:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="使用javap来查看字节码"><a href="#使用javap来查看字节码" class="headerlink" title="使用javap来查看字节码"></a>使用javap来查看字节码</h4><blockquote>
+<p>默认情况下打印所有非私有方法和字段</p>
+</blockquote>
+<ul>
+<li>-p选项 还会打印私有方法和字段</li>
+<li>-v选项 尽可能打印所有信息(这里指)</li>
+<li>-c选项 只查看方法对应字节码</li>
+</ul>
+<h4 id="JOL工具"><a href="#JOL工具" class="headerlink" title="JOL工具"></a>JOL工具</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">curl -L -O http:&#x2F;&#x2F;central.maven.org&#x2F;maven2&#x2F;org&#x2F;openjdk&#x2F;jol&#x2F;jol-cli&#x2F;0.9&#x2F;jol-cli-0.9-full.jar</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">java -cp jol-cli-0.9-full.jar org.openjdk.jol.Main internals java.lang.String</span></pre></td></tr></table></figure>
+<p>jol地址已失效 -&gt; <a href="https://repo1.maven.org/maven2/org/openjdk/jol/jol-cli/0.9/jol-cli-0.9-full.jar" target="_blank" rel="noopener">新地址</a></p>
+<h4 id="jvm调试命令"><a href="#jvm调试命令" class="headerlink" title="jvm调试命令"></a>jvm调试命令</h4><p>-XX:+ </p>
+<ul>
+<li>-XX:+UseCompressedOops<blockquote>
+<p>  开启对象压缩指针 64位 -&gt; 32 位  </p>
+</blockquote>
+</li>
+</ul>
+<p>这里使用内存对齐(8位)使后三位为0, 也可以用这3位来记录一些额外信息 扩大寻址范围32位-&gt;35位.</p>
+<ul>
+<li>-XX:ObjectAlignmentLnBytes<blockquote>
+<p>  字节对齐 java虚拟机堆中的起始地址需要对齐至8的倍数  </p>
+</blockquote>
+</li>
+</ul>
+<p>对象之间有内存对齐, 对象之间的字段也需要内存对齐(否则, 字段的读取需要替换两个缓存行, 存储会同时污染来那个缓存行, 影响执行效率)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/21/Java%E5%B7%A5%E5%85%B7%E9%9B%86LTS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -417,7 +517,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 Trent
+    		&copy; 2020 Trent
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
