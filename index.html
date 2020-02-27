@@ -332,6 +332,51 @@
 </li>
 </ul>
 <p>对象之间有内存对齐, 对象之间的字段也需要内存对齐(否则, 字段的读取需要替换两个缓存行, 存储会同时污染来那个缓存行, 影响执行效率)</p>
+<h4 id="jps"><a href="#jps" class="headerlink" title="jps"></a>jps</h4><blockquote>
+<p>打印所有正在运行的进程的相关信息。   </p>
+</blockquote>
+<p><a href="https://docs.oracle.com/en/java/javase/11/tools/jps.html" target="_blank" rel="noopener">帮助文档</a></p>
+<ul>
+<li>-m 将打印传递给Java虚拟机的参数  </li>
+<li>-l 将打印模块名以及包名  </li>
+<li>-v 将打印传递给 Java 虚拟机的参数（如-XX:+UnlockExperimentalVMOptions -XX:+UseZGC）  </li>
+</ul>
+<h4 id="jstat"><a href="#jstat" class="headerlink" title="jstat"></a>jstat</h4><blockquote>
+<p>打印目标Java进程的性能数据。</p>
+</blockquote>
+<p><a href="https://docs.oracle.com/en/java/javase/11/tools/jstat.html" target="_blank" rel="noopener">帮助文档</a><br>$ jstat -options<br>-class<br>-compiler<br>-gc<br>-gccapacity<br>-gccause<br>-gcmetacapacity<br>-gcnew<br>-gcnewcapacity<br>-gcold<br>-gcoldcapacity<br>-gcutil<br>-printcompilation  </p>
+<p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">jstat -gc -t 22126 1s 4</span></pre></td></tr></table></figure>
+
+<h4 id="jmap"><a href="#jmap" class="headerlink" title="jmap"></a>jmap</h4><blockquote>
+<p>分析虚拟机堆中的对象  </p>
+</blockquote>
+<p><a href="https://docs.oracle.com/en/java/javase/11/tools/jmap.html" target="_blank" rel="noopener">帮助文档</a><br>-clstats<br>-finalizerinfo<br>-histo<br>-dump  </p>
+<p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">jmap -histo 22574</span></pre></td></tr></table></figure>
+
+<p><strong>注意</strong></p>
+<blockquote>
+<p>以及jinfo、jstack和jcmd依赖于Java虚拟机的Attach API，因此只能监控本地Java进程<br>一旦开启Java虚拟机参数DisableAttachMechanism（-XX:+DisableAttachMechanism)，基于<a href="https://docs.oracle.com/en/java/javase/11/docs/api/jdk.attach/com/sun/tools/attach/package-summary.html" target="_blank" rel="noopener">Attach API</a>的命令将无法执行。  </p>
+</blockquote>
+<p>远程跑java程序是否可以使用这些工具？  </p>
+<h4 id="jinfo"><a href="#jinfo" class="headerlink" title="jinfo"></a>jinfo</h4><blockquote>
+<p>jinfo命令可用来查看目标Java进程的参数，如传递给Java虚拟机的-X(即输出中的VM Flags），以及可在Java层面通过System.getProperty获取的-D参数（即输出中的System Properties）。<br>可以改动manageable的参数</p>
+</blockquote>
+<p><a href="https://docs.oracle.com/en/java/javase/11/tools/jinfo.html" target="_blank" rel="noopener">帮助文档</a><br>例: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">jinfo 73269</span></pre></td></tr></table></figure>
+
+<h4 id="jstack"><a href="#jstack" class="headerlink" title="jstack"></a>jstack</h4><blockquote>
+<p>jstack命令可以用来打印目标Java进程中各个线程的栈轨迹，以及这些线程所持有的锁。  </p>
+</blockquote>
+<p><a href="https://docs.oracle.com/en/java/javase/11/tools/jstack.html" target="_blank" rel="noopener">帮助文档</a><br>jstack的其中一个应用场景便是死锁检测。<br>jstack不仅会打印线程的栈轨迹、线程状态（BLOCKED）、持有的锁（locked …）以及正在请求的锁（waiting to lock …），而且还会分析出具体的死锁。</p>
+<p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">jstack 73269</span></pre></td></tr></table></figure>
+
+<h4 id="jcmd"><a href="#jcmd" class="headerlink" title="jcmd"></a>jcmd</h4><blockquote>
+<p>可以使用jcmd命令，来代替除了jstat之外的所有命令。  </p>
+</blockquote>
+<p><a href="https://docs.oracle.com/en/java/javase/11/tools/jcmd.html" target="_blank" rel="noopener">帮助文档</a></p>
 
       
 
