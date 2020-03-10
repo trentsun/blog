@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | </title>
+  <title>Java反射API的用法 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2020&#x2F;index.html">
+  <meta name="description" content="获取Class对象 Class.forName获取Class对象 getClass()方法  直接使用类名+”.class”. 对于基本数据类型, 它们的包装类型拥有一个名为”TYPE”的final静态字段, 指向该基本数据类型对应的Class对象  integer.TYPE 指向 int.class对于数组类型 可以使用类名+ “[].class”来访问, 如int[].class 拿到Clas">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java反射API的用法">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;22&#x2F;Java%E5%8F%8D%E5%B0%84API%E7%9A%84%E7%94%A8%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name">
+<meta property="og:description" content="获取Class对象 Class.forName获取Class对象 getClass()方法  直接使用类名+”.class”. 对于基本数据类型, 它们的包装类型拥有一个名为”TYPE”的final静态字段, 指向该基本数据类型对应的Class对象  integer.TYPE 指向 int.class对于数组类型 可以使用类名+ “[].class”来访问, 如int[].class 拿到Clas">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-03-10T04:42:50.925Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="" type="application/atom+xml">
@@ -153,74 +157,91 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Java反射API的用法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/10/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-03-10T04:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/10/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">Java内存模型</a>
+    <h1 class="article-title" itemprop="name">
+      Java反射API的用法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/22/Java%E5%8F%8D%E5%B0%84API%E7%9A%84%E7%94%A8%E6%B3%95/" class="archive-article-date">
+	<!--显示阅读次数-->
+	
+	  <br/>
+	  <a class="cloud-tie-join-count" href="javascript:void(0);" target="_blank" rel="noopener" style="color:gray;font-size:14px;">
+	  <span class="icon-sort"></span>
+ 	 <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+ 	           阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+ 	 </span>
+ 	 </a>
+ 	 
+        
+        <a href="/2020/02/22/Java%E5%8F%8D%E5%B0%84API%E7%9A%84%E7%94%A8%E6%B3%95/" class="archive-article-date">
   	<time datetime="2020-02-22T04:39:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-22</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/22/Java%E5%8F%8D%E5%B0%84API%E7%9A%84%E7%94%A8%E6%B3%95/">Java反射API的用法</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="获取Class对象"><a href="#获取Class对象" class="headerlink" title="获取Class对象"></a>获取Class对象</h4><ul>
+<li>Class.forName获取Class对象</li>
+<li>getClass()方法 </li>
+<li>直接使用类名+”.class”. 对于基本数据类型, 它们的包装类型拥有一个名为”TYPE”的final静态字段, 指向该基本数据类型对应的Class对象</li>
+</ul>
+<p>integer.TYPE 指向 int.class<br>对于数组类型 可以使用类名+ “[].class”来访问, 如int[].class</p>
+<h4 id="拿到Class对象后"><a href="#拿到Class对象后" class="headerlink" title="拿到Class对象后"></a>拿到Class对象后</h4><ol>
+<li>使用newInstance()生成一个实例(需要一个无参构造器)  </li>
+<li>使用isInstance(Object)来判断一个对象是否是该类的实例, 语法上等同于instance of 关键字(JIT 优化时会有差别?)</li>
+<li>使用Array.newInstance(Class,int)来构造该类型的数组  </li>
+<li>使用getFIelds()/getConstructors()/getMethods() 来访问该类型的成员. 带Declared的方法不会返回父类成员,但是会返回私有成员</li>
+</ol>
+<h4 id="拿到类成员后"><a href="#拿到类成员后" class="headerlink" title="拿到类成员后"></a>拿到类成员后</h4><ul>
+<li>使用Constructor/Field/Method.setAccessible(true)来绕开Java语言的访问限制(如private).</li>
+<li>使用Constructor.newInstance(Object[])来生成该类的实例</li>
+<li>使用Field.get/set(Objcet)访问字段</li>
+<li>使用Method.invoke(Object, Object[])来调用方法</li>
+</ul>
+<h4 id="反射调用栈"><a href="#反射调用栈" class="headerlink" title="反射调用栈"></a>反射调用栈</h4><blockquote>
+<p>默认情况下反射调用为委派实现, 委派给本地实现来进行方法实现来进行方法调用. 在达到阈值超过15次(第15次)委派实现会将委派对象DelegatingMethodAccessorImpl切换至动态实现(自动生成字节码(<strong>耗时</strong>)), 它将直接使用invoke指令来调用目标方法  </p>
+</blockquote>
+<h4 id="反射性能开销原因"><a href="#反射性能开销原因" class="headerlink" title="反射性能开销原因"></a>反射性能开销原因</h4><ul>
+<li>不定长参数导致的Object数组</li>
+<li>基本数据类型的自己装箱拆箱</li>
+<li>方法内联 (将本方法内调用的方法与自己一起编译)</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -232,133 +253,128 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/22/Java%E5%8F%8D%E5%B0%84API%E7%9A%84%E7%94%A8%E6%B3%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/Java%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/" class="archive-article-date">
-  	<time datetime="2020-02-21T00:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/03/10/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Java内存模型
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/21/Java%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java对象的内存布局</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/Java%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/">Java对象的内存布局</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#获取Class对象"><span class="toc-number">1.</span> <span class="toc-text">获取Class对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#拿到Class对象后"><span class="toc-number">2.</span> <span class="toc-text">拿到Class对象后</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#拿到类成员后"><span class="toc-number">3.</span> <span class="toc-text">拿到类成员后</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#反射调用栈"><span class="toc-number">4.</span> <span class="toc-text">反射调用栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#反射性能开销原因"><span class="toc-number">5.</span> <span class="toc-text">反射性能开销原因</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/Java%E5%B7%A5%E5%85%B7%E9%9B%86LTS/" class="archive-article-date">
-  	<time datetime="2020-02-21T00:01:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/Java%E5%B7%A5%E5%85%B7%E9%9B%86LTS/">Java工具集LTS</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/29/mysql-%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/" class="archive-article-date">
-  	<time datetime="2020-01-29T04:47:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/29/mysql-%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/">mysql 登录失败</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -382,8 +398,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

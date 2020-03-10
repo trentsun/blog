@@ -155,6 +155,218 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java内存模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/10/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">Java内存模型</a>
+    </h1>
+  
+
+	<!--显示阅读次数-->
+	
+        
+        <a href="/2020/03/10/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
+  	<time datetime="2020-03-10T04:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="as-if-serial属性"><a href="#as-if-serial属性" class="headerlink" title="as-if-serial属性"></a>as-if-serial属性</h4><blockquote>
+<p>菩提本无树, 何处惹尘埃。 </p>
+</blockquote>
+<p>即时编译器(和处理器)需要保证程序能够遵守as-if-serial属性。通俗地说, 就是在单线程情况下, 要给程序一个顺序执行的假象。即经过重排序的执行结果要与顺序执行的结果一致。 </p>
+<p>另外, 若两个操作之间存在数据依赖, 那么及时编译器(和处理器)不能调整它们的顺序, 否则将会造成程序语义的改变。 </p>
+<h4 id="happens-before-关系"><a href="#happens-before-关系" class="headerlink" title="happens-before 关系"></a>happens-before 关系</h4><blockquote>
+<p>问渠那得清如许? 唯有源头活水来。</p>
+</blockquote>
+<p>描述两个<strong>操作</strong>的内存可见性的。如果操作X happens-before 操作Y, 那么X的结果对于Y可见(Y观测X的结果)  </p>
+<ul>
+<li>Java内存模型定义的线程间happens-before关系  </li>
+</ul>
+<p>1。解锁操作 happens-before 对该所锁的加锁操作(时序)<br>2。volatile字段的写操作 happens-before 对该volatile字段的读操作(时序)<br>3。线程的启动(start) happens-before  线程的第一个操作<br>4。线程的最后一个操作 happens-before 线程的终止事件(即其他线程通过Thread.isAlive() 或 Thread.join()判断该线程是否中止)<br>5。线程对其他线程的中断操作 happens-before 被中断线程收到的中断事件(即被中断线程的InterruptedException异常, 或者第三个线程针对被中断线程的Thread.interrupted 或者 Thread.isinterrupted调用)<br>6。构造器中的最后一个操作 happens-before 析构器的第一个操作</p>
+<p>另外happens-before关系还具备传递性.</p>
+<h4 id="Java内存模型的底层实现"><a href="#Java内存模型的底层实现" class="headerlink" title="Java内存模型的底层实现"></a>Java内存模型的底层实现</h4><blockquote>
+<p>Java内存模型是通过内存屏障(memory barrier)来禁止<strong>重排序</strong>的.</p>
+</blockquote>
+<p>对于即使编译器来说, 它会针对每个happens-before 关系, 向正在编译的目标方法中插入相应的读读,读写,写读,写写内存屏障。 </p>
+<p>这些内存屏障会限制即时编译器的重排序操作。以volatile字段访问为例, 所插入的内存屏障将不允许volatile字段写操作之前的内存访问被重排序至其后; 也将不允许bolatile字段读操作之后的内存访问被重排序至之前。<a href="#1">volatile字段的内存屏障是什么类型?</a> </p>
+<p>即时编译器会根据具体的底层体系架构, 将内存屏障替换成具体的CPU指令。以我接触最多的X86_64架构来说, 读读,读写以及写写内存屏障是空操作(no-op), 只有写读内存屏障会被替换成具体指令</p>
+<h4 id="这样理解重排序"><a href="#这样理解重排序" class="headerlink" title="这样理解重排序"></a>这样理解重排序</h4><p>Java代码本应该按源码顺序执行, 但是编译器对部分代码会进行优化, 提高执行效率(cpu 或 内存)  </p>
+<p>然而, 禁止重排序是处于某种目的(业务逻辑/happens-before)开发人员对编译器的代码重排序进行一定的限制。 </p>
+<p>对于即时编译器来说, 它会针对happens-before关系, 向正在编译的目标方法中插入相应的内存屏障(读读,读写,写读,写写)  </p>
+<span id="1"/>
+
+<ul>
+<li><p>volatile<br>volatile字段写操作之后的写读内存屏障需要用具体指令来替代.(HotSpot 所选取的具体指令是 lock add DWORD PTR[rsp],0x0, 而非mfence[3].)<br>在具体指令的效果, 可以简单理解为强制刷新处理器的写缓存。写缓存是处理器用来加速内存存储效率的一项技术。<br>在碰到内存写操作时, 处理器并不会等待该指令结束, 而是直接开始下一指令, 并且依赖于写缓存将更改的数据同步至主内存之中。<br>强制刷新写缓存,将使得当前线程写入volatile字段的值(以及写缓存中已有的其他内存修改), 同步至主内存之中。<br>强制刷新写缓存, 将是得当前现成写入volatile字段的值(以及写缓存中已有的其他内存修改), 同步至主内存之中。<br>由于内存写操作(强制刷新缓存)同时会无效化其他处理器所持有的指向同一内存地址的缓存行, 因此可以认为其他处理器能够立即见到该volatile字段的最新值。</p>
+</li>
+<li><p>锁<br>前面提到锁具备happens-before关系。具体来说, 解锁操作happens-before之后对同一把锁的枷锁操作。实际上, 在解锁时, Java虚拟机同样需要强制刷新缓存, 使得当前线程所修改的内存对其他线程可见。<br>锁操作具备happens-before关系。具体来说, 解锁操作happens-before之后对同一把锁。也就是说, 如果编译器能够(通过逃逸分析)证明某把锁仅被同一线程持有, 那么它可以移除相应的加锁解锁操作。 </p>
+</li>
+<li><p>final<br>final实例字段涉及新建对象的发布问题。当一个对象包含final实例字段时, 我们希望其他线程智能看到已初始化的实例字段。  </p>
+</li>
+</ul>
+<p>因此, 即时编译器会在final字段的写操作后插入一个写写屏障, 以防某些优化将新建对象的发布(即将实例对象写入一个共享引用中) 重排序至final字段的写操作之前。在X86_64平台上, 写写屏障是空操作  </p>
+<p> 新建对象的安全发布问题(safe publication)问题不仅仅包括final实例字段的可见性, 还包括其他实例字段的可见性。 </p>
+<p> <a href="https://vlkan.com/blog/post/2014/02/14/java-safe-publication/" target="_blank" rel="noopener">https://vlkan.com/blog/post/2014/02/14/java-safe-publication/</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/10/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java反射API的用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/22/Java%E5%8F%8D%E5%B0%84API%E7%9A%84%E7%94%A8%E6%B3%95/">Java反射API的用法</a>
+    </h1>
+  
+
+	<!--显示阅读次数-->
+	
+        
+        <a href="/2020/02/22/Java%E5%8F%8D%E5%B0%84API%E7%9A%84%E7%94%A8%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-02-22T04:39:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="获取Class对象"><a href="#获取Class对象" class="headerlink" title="获取Class对象"></a>获取Class对象</h4><ul>
+<li>Class.forName获取Class对象</li>
+<li>getClass()方法 </li>
+<li>直接使用类名+”.class”. 对于基本数据类型, 它们的包装类型拥有一个名为”TYPE”的final静态字段, 指向该基本数据类型对应的Class对象</li>
+</ul>
+<p>integer.TYPE 指向 int.class<br>对于数组类型 可以使用类名+ “[].class”来访问, 如int[].class</p>
+<h4 id="拿到Class对象后"><a href="#拿到Class对象后" class="headerlink" title="拿到Class对象后"></a>拿到Class对象后</h4><ol>
+<li>使用newInstance()生成一个实例(需要一个无参构造器)  </li>
+<li>使用isInstance(Object)来判断一个对象是否是该类的实例, 语法上等同于instance of 关键字(JIT 优化时会有差别?)</li>
+<li>使用Array.newInstance(Class,int)来构造该类型的数组  </li>
+<li>使用getFIelds()/getConstructors()/getMethods() 来访问该类型的成员. 带Declared的方法不会返回父类成员,但是会返回私有成员</li>
+</ol>
+<h4 id="拿到类成员后"><a href="#拿到类成员后" class="headerlink" title="拿到类成员后"></a>拿到类成员后</h4><ul>
+<li>使用Constructor/Field/Method.setAccessible(true)来绕开Java语言的访问限制(如private).</li>
+<li>使用Constructor.newInstance(Object[])来生成该类的实例</li>
+<li>使用Field.get/set(Objcet)访问字段</li>
+<li>使用Method.invoke(Object, Object[])来调用方法</li>
+</ul>
+<h4 id="反射调用栈"><a href="#反射调用栈" class="headerlink" title="反射调用栈"></a>反射调用栈</h4><blockquote>
+<p>默认情况下反射调用为委派实现, 委派给本地实现来进行方法实现来进行方法调用. 在达到阈值超过15次(第15次)委派实现会将委派对象DelegatingMethodAccessorImpl切换至动态实现(自动生成字节码(<strong>耗时</strong>)), 它将直接使用invoke指令来调用目标方法  </p>
+</blockquote>
+<h4 id="反射性能开销原因"><a href="#反射性能开销原因" class="headerlink" title="反射性能开销原因"></a>反射性能开销原因</h4><ul>
+<li>不定长参数导致的Object数组</li>
+<li>基本数据类型的自己装箱拆箱</li>
+<li>方法内联 (将本方法内调用的方法与自己一起编译)</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/22/Java%E5%8F%8D%E5%B0%84API%E7%9A%84%E7%94%A8%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java对象的内存布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -401,6 +613,157 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/02/21/Java%E5%B7%A5%E5%85%B7%E9%9B%86LTS/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mysql-登录失败" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/29/mysql-%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/">mysql 登录失败</a>
+    </h1>
+  
+
+	<!--显示阅读次数-->
+	
+        
+        <a href="/2020/01/29/mysql-%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/" class="archive-article-date">
+  	<time datetime="2020-01-29T04:47:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>mysql -u root -p报错</p>
+<blockquote>
+<p>ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/tmp/mysql.sock’ (2)</p>
+</blockquote>
+<p>这是因为mysql服务没有启动<br>启动命令如下</p>
+<p>mysql.server start<br>or<br>brew services start mysql</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/29/mysql-%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-MacOs-catalina-配置zsh别名和主题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/01/MacOs-catalina-%E9%85%8D%E7%BD%AEzsh%E5%88%AB%E5%90%8D%E5%92%8C%E4%B8%BB%E9%A2%98/">MacOs catalina 配置zsh别名和主题</a>
+    </h1>
+  
+
+	<!--显示阅读次数-->
+	
+        
+        <a href="/2019/12/01/MacOs-catalina-%E9%85%8D%E7%BD%AEzsh%E5%88%AB%E5%90%8D%E5%92%8C%E4%B8%BB%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2019-12-01T05:01:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="zsh主题"><a href="#zsh主题" class="headerlink" title="zsh主题"></a>zsh主题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">autoload -Uz promptinit  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">promptinit  </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">prompt -l &#x2F;&#x2F;列出主题</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">prompt walters</span></pre></td></tr></table></figure>
+<p>在命令行中用过后添加一下内容(当中的fade是一个主题)到 ~/.zshrc 之后source一下,就配置到zsh了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">autoload -Uz promptinit</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">promptinit</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">prompt fade &quot;red&quot;</span></pre></td></tr></table></figure>
+<h3 id="zsh配置别名"><a href="#zsh配置别名" class="headerlink" title="zsh配置别名"></a>zsh配置别名</h3><h4 id="配置文件-zshrc"><a href="#配置文件-zshrc" class="headerlink" title="配置文件 ~/.zshrc"></a>配置文件 ~/.zshrc</h4><h4 id="配置方式"><a href="#配置方式" class="headerlink" title="配置方式"></a>配置方式</h4><p>例如: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">alias zshconfig&#x3D;&quot;vim ~&#x2F;.zshrc&quot;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">alias -s py&#x3D;vi #在命令行输入python文件,会用vim打开</span></pre></td></tr></table></figure>
+<p>再source一下</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/01/MacOs-catalina-%E9%85%8D%E7%BD%AEzsh%E5%88%AB%E5%90%8D%E5%92%8C%E4%B8%BB%E9%A2%98/">展开全文 >></a>
         </p>
       
 
@@ -779,6 +1142,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | </title>
+  <title>Java内存模型 | </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2020&#x2F;index.html">
+  <meta name="description" content="as-if-serial属性 菩提本无树, 何处惹尘埃。   即时编译器(和处理器)需要保证程序能够遵守as-if-serial属性。通俗地说, 就是在单线程情况下, 要给程序一个顺序执行的假象。即经过重排序的执行结果要与顺序执行的结果一致。  另外, 若两个操作之间存在数据依赖, 那么及时编译器(和处理器)不能调整它们的顺序, 否则将会造成程序语义的改变。  happens-before 关系">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java内存模型">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;10&#x2F;Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B&#x2F;index.html">
 <meta property="og:site_name">
+<meta property="og:description" content="as-if-serial属性 菩提本无树, 何处惹尘埃。   即时编译器(和处理器)需要保证程序能够遵守as-if-serial属性。通俗地说, 就是在单线程情况下, 要给程序一个顺序执行的假象。即经过重排序的执行结果要与顺序执行的结果一致。  另外, 若两个操作之间存在数据依赖, 那么及时编译器(和处理器)不能调整它们的顺序, 否则将会造成程序语义的改变。  happens-before 关系">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-03-10T04:41:53.136Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="" type="application/atom+xml">
@@ -153,36 +157,101 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Java内存模型" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Java内存模型
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/10/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
+
+	<!--显示阅读次数-->
+	
+	  <br/>
+	  <a class="cloud-tie-join-count" href="javascript:void(0);" target="_blank" rel="noopener" style="color:gray;font-size:14px;">
+	  <span class="icon-sort"></span>
+ 	 <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+ 	           阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+ 	 </span>
+ 	 </a>
+ 	 
+        
+        <a href="/2020/03/10/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
   	<time datetime="2020-03-10T04:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/10/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">Java内存模型</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="as-if-serial属性"><a href="#as-if-serial属性" class="headerlink" title="as-if-serial属性"></a>as-if-serial属性</h4><blockquote>
+<p>菩提本无树, 何处惹尘埃。 </p>
+</blockquote>
+<p>即时编译器(和处理器)需要保证程序能够遵守as-if-serial属性。通俗地说, 就是在单线程情况下, 要给程序一个顺序执行的假象。即经过重排序的执行结果要与顺序执行的结果一致。 </p>
+<p>另外, 若两个操作之间存在数据依赖, 那么及时编译器(和处理器)不能调整它们的顺序, 否则将会造成程序语义的改变。 </p>
+<h4 id="happens-before-关系"><a href="#happens-before-关系" class="headerlink" title="happens-before 关系"></a>happens-before 关系</h4><blockquote>
+<p>问渠那得清如许? 唯有源头活水来。</p>
+</blockquote>
+<p>描述两个<strong>操作</strong>的内存可见性的。如果操作X happens-before 操作Y, 那么X的结果对于Y可见(Y观测X的结果)  </p>
+<ul>
+<li>Java内存模型定义的线程间happens-before关系  </li>
+</ul>
+<p>1。解锁操作 happens-before 对该所锁的加锁操作(时序)<br>2。volatile字段的写操作 happens-before 对该volatile字段的读操作(时序)<br>3。线程的启动(start) happens-before  线程的第一个操作<br>4。线程的最后一个操作 happens-before 线程的终止事件(即其他线程通过Thread.isAlive() 或 Thread.join()判断该线程是否中止)<br>5。线程对其他线程的中断操作 happens-before 被中断线程收到的中断事件(即被中断线程的InterruptedException异常, 或者第三个线程针对被中断线程的Thread.interrupted 或者 Thread.isinterrupted调用)<br>6。构造器中的最后一个操作 happens-before 析构器的第一个操作</p>
+<p>另外happens-before关系还具备传递性.</p>
+<h4 id="Java内存模型的底层实现"><a href="#Java内存模型的底层实现" class="headerlink" title="Java内存模型的底层实现"></a>Java内存模型的底层实现</h4><blockquote>
+<p>Java内存模型是通过内存屏障(memory barrier)来禁止<strong>重排序</strong>的.</p>
+</blockquote>
+<p>对于即使编译器来说, 它会针对每个happens-before 关系, 向正在编译的目标方法中插入相应的读读,读写,写读,写写内存屏障。 </p>
+<p>这些内存屏障会限制即时编译器的重排序操作。以volatile字段访问为例, 所插入的内存屏障将不允许volatile字段写操作之前的内存访问被重排序至其后; 也将不允许bolatile字段读操作之后的内存访问被重排序至之前。<a href="#1">volatile字段的内存屏障是什么类型?</a> </p>
+<p>即时编译器会根据具体的底层体系架构, 将内存屏障替换成具体的CPU指令。以我接触最多的X86_64架构来说, 读读,读写以及写写内存屏障是空操作(no-op), 只有写读内存屏障会被替换成具体指令</p>
+<h4 id="这样理解重排序"><a href="#这样理解重排序" class="headerlink" title="这样理解重排序"></a>这样理解重排序</h4><p>Java代码本应该按源码顺序执行, 但是编译器对部分代码会进行优化, 提高执行效率(cpu 或 内存)  </p>
+<p>然而, 禁止重排序是处于某种目的(业务逻辑/happens-before)开发人员对编译器的代码重排序进行一定的限制。 </p>
+<p>对于即时编译器来说, 它会针对happens-before关系, 向正在编译的目标方法中插入相应的内存屏障(读读,读写,写读,写写)  </p>
+<span id="1"/>
 
-        <div class="article-info info-on-right">
-          
+<ul>
+<li><p>volatile<br>volatile字段写操作之后的写读内存屏障需要用具体指令来替代.(HotSpot 所选取的具体指令是 lock add DWORD PTR[rsp],0x0, 而非mfence[3].)<br>在具体指令的效果, 可以简单理解为强制刷新处理器的写缓存。写缓存是处理器用来加速内存存储效率的一项技术。<br>在碰到内存写操作时, 处理器并不会等待该指令结束, 而是直接开始下一指令, 并且依赖于写缓存将更改的数据同步至主内存之中。<br>强制刷新写缓存,将使得当前线程写入volatile字段的值(以及写缓存中已有的其他内存修改), 同步至主内存之中。<br>强制刷新写缓存, 将是得当前现成写入volatile字段的值(以及写缓存中已有的其他内存修改), 同步至主内存之中。<br>由于内存写操作(强制刷新缓存)同时会无效化其他处理器所持有的指向同一内存地址的缓存行, 因此可以认为其他处理器能够立即见到该volatile字段的最新值。</p>
+</li>
+<li><p>锁<br>前面提到锁具备happens-before关系。具体来说, 解锁操作happens-before之后对同一把锁的枷锁操作。实际上, 在解锁时, Java虚拟机同样需要强制刷新缓存, 使得当前线程所修改的内存对其他线程可见。<br>锁操作具备happens-before关系。具体来说, 解锁操作happens-before之后对同一把锁。也就是说, 如果编译器能够(通过逃逸分析)证明某把锁仅被同一线程持有, 那么它可以移除相应的加锁解锁操作。 </p>
+</li>
+<li><p>final<br>final实例字段涉及新建对象的发布问题。当一个对象包含final实例字段时, 我们希望其他线程智能看到已初始化的实例字段。  </p>
+</li>
+</ul>
+<p>因此, 即时编译器会在final字段的写操作后插入一个写写屏障, 以防某些优化将新建对象的发布(即将实例对象写入一个共享引用中) 重排序至final字段的写操作之前。在X86_64平台上, 写写屏障是空操作  </p>
+<p> 新建对象的安全发布问题(safe publication)问题不仅仅包括final实例字段的可见性, 还包括其他实例字段的可见性。 </p>
+<p> <a href="https://vlkan.com/blog/post/2014/02/14/java-safe-publication/" target="_blank" rel="noopener">https://vlkan.com/blog/post/2014/02/14/java-safe-publication/</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -194,171 +263,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/10/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/22/Java%E5%8F%8D%E5%B0%84API%E7%9A%84%E7%94%A8%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-02-22T04:39:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/22/Java%E5%8F%8D%E5%B0%84API%E7%9A%84%E7%94%A8%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java反射API的用法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/22/Java%E5%8F%8D%E5%B0%84API%E7%9A%84%E7%94%A8%E6%B3%95/">Java反射API的用法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#as-if-serial属性"><span class="toc-number">1.</span> <span class="toc-text">as-if-serial属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#happens-before-关系"><span class="toc-number">2.</span> <span class="toc-text">happens-before 关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java内存模型的底层实现"><span class="toc-number">3.</span> <span class="toc-text">Java内存模型的底层实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#这样理解重排序"><span class="toc-number">4.</span> <span class="toc-text">这样理解重排序</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/Java%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/" class="archive-article-date">
-  	<time datetime="2020-02-21T00:20:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/Java%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/">Java对象的内存布局</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/21/Java%E5%B7%A5%E5%85%B7%E9%9B%86LTS/" class="archive-article-date">
-  	<time datetime="2020-02-21T00:01:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/21/Java%E5%B7%A5%E5%85%B7%E9%9B%86LTS/">Java工具集LTS</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/29/mysql-%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/" class="archive-article-date">
-  	<time datetime="2020-01-29T04:47:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/29/mysql-%E7%99%BB%E5%BD%95%E5%A4%B1%E8%B4%A5/">mysql 登录失败</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -382,8 +399,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
