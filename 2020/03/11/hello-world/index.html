@@ -7,19 +7,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>配置OpenCV</title>
+<title>Hello World</title>
 
 
-    <meta name="description" content="Cmake编译Opencv 国庆期间配置了下开发环境,记录一下遇到的坑  一、安装MinGW-64 用于编译opencv库  下载MinGW-64">
-<meta name="keywords" content="OpenCV">
+    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:type" content="article">
-<meta property="og:title" content="配置OpenCV">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;28&#x2F;%E9%85%8D%E7%BD%AEOpenCV&#x2F;index.html">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;11&#x2F;hello-world&#x2F;index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="Cmake编译Opencv 国庆期间配置了下开发环境,记录一下遇到的坑  一、安装MinGW-64 用于编译opencv库  下载MinGW-64">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2020-03-11T03:38:16.329Z">
+<meta property="og:updated_time" content="2020-03-11T03:37:14.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
 
@@ -79,7 +78,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="配置OpenCV" height="28">
+                <img src="/images/logo.svg" alt="Hello World" height="28">
             
             </a>
         </div>
@@ -138,22 +137,20 @@
     <div class="card-content article ">
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
 	    
-                <i class="fas fa-angle-double-right"></i>配置OpenCV
+                <i class="fas fa-angle-double-right"></i>Hello World
             
         </h1>
 	
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-		<time class="level-item has-text-grey" datetime="2019-11-27T18:07:09.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-11-28</time>
-                
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-11T03:38:16.329Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-11</time>
+		<time class="level-item has-text-grey" datetime="2020-03-11T03:37:14.132Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-03-11</time>
                 
 		
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 642 words)
+                    a minute read (About 124 words)
                 </span>
                 
                 
@@ -161,78 +158,31 @@
         </div>
         
         <div class="content">
-            <h3 id="Cmake编译Opencv"><a href="#Cmake编译Opencv" class="headerlink" title="Cmake编译Opencv"></a>Cmake编译Opencv</h3><blockquote>
-<p>国庆期间配置了下开发环境,记录一下遇到的坑</p>
-</blockquote>
-<h4 id="一、安装MinGW-64"><a href="#一、安装MinGW-64" class="headerlink" title="一、安装MinGW-64"></a>一、安装MinGW-64</h4><blockquote>
-<p>用于编译opencv库</p>
-</blockquote>
-<p><a href="https://sourceforge.net/projects/mingw-w64/">下载MinGW-64</a></p>
+            <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span></pre></td></tr></table></figure>
 <a id="more"></a>
-<ul>
-<li><p>直接安装即可,注意<strong>选择x86_64架构</strong>,我选择的是7.3.0版本</p>
-</li>
-<li><p>另外添加环境变量</p>
-</li>
-<li><p>可以用 gcc -v 和g++ -v检查</p>
-<!--more-->
-<h4 id="二、-安装cmake"><a href="#二、-安装cmake" class="headerlink" title="二、 安装cmake"></a>二、 安装cmake</h4><p><a href="https://cmake.org/download/">下载cmake</a></p>
-</li>
-<li><p>安装</p>
-</li>
-<li><p>配置环境变量</p>
-</li>
-<li><p>可以用cmake –version检查</p>
-</li>
-</ul>
-<h4 id="三、-安装clion"><a href="#三、-安装clion" class="headerlink" title="三、 安装clion"></a>三、 安装clion</h4><blockquote>
-<p>JetBrains家的一款c(c++)IDE</p>
-</blockquote>
-<ul>
-<li>默认安装即可</li>
-<li>激活码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">812LFWMRSH-eyJsaWNlbnNlSWQiOiI4MTJMRldNUlNIIiwibGljZW5zZWVOYW1lIjoi5q2j54mIIOaOiOadgyIsImFzc2lnbmVlTmFtZSI6IiIsImFzc2lnbmVlRW1haWwiOiIiLCJsaWNlbnNlUmVzdHJpY3Rpb24iOiIiLCJjaGVja0NvbmN1cnJlbnRVc2UiOmZhbHNlLCJwcm9kdWN0cyI6W3siY29kZSI6IklJIiwiZmFsbGJhY2tEYXRlIjoiMjAxOS0wNC0yMSIsInBhaWRVcFRvIjoiMjAyMC0wNC0yMCJ9LHsiY29kZSI6IkFDIiwiZmFsbGJhY2tEYXRlIjoiMjAxOS0wNC0yMSIsInBhaWRVcFRvIjoiMjAyMC0wNC0yMCJ9LHsiY29kZSI6IkRQTiIsImZhbGxiYWNrRGF0ZSI6IjIwMTktMDQtMjEiLCJwYWlkVXBUbyI6IjIwMjAtMDQtMjAifSx7ImNvZGUiOiJQUyIsImZhbGxiYWNrRGF0ZSI6IjIwMTktMDQtMjEiLCJwYWlkVXBUbyI6IjIwMjAtMDQtMjAifSx7ImNvZGUiOiJHTyIsImZhbGxiYWNrRGF0ZSI6IjIwMTktMDQtMjEiLCJwYWlkVXBUbyI6IjIwMjAtMDQtMjAifSx7ImNvZGUiOiJETSIsImZhbGxiYWNrRGF0ZSI6IjIwMTktMDQtMjEiLCJwYWlkVXBUbyI6IjIwMjAtMDQtMjAifSx7ImNvZGUiOiJDTCIsImZhbGxiYWNrRGF0ZSI6IjIwMTktMDQtMjEiLCJwYWlkVXBUbyI6IjIwMjAtMDQtMjAifSx7ImNvZGUiOiJSUzAiLCJmYWxsYmFja0RhdGUiOiIyMDE5LTA0LTIxIiwicGFpZFVwVG8iOiIyMDIwLTA0LTIwIn0seyJjb2RlIjoiUkMiLCJmYWxsYmFja0RhdGUiOiIyMDE5LTA0LTIxIiwicGFpZFVwVG8iOiIyMDIwLTA0LTIwIn0seyJjb2RlIjoiUkQiLCJmYWxsYmFja0RhdGUiOiIyMDE5LTA0LTIxIiwicGFpZFVwVG8iOiIyMDIwLTA0LTIwIn0seyJjb2RlIjoiUEMiLCJmYWxsYmFja0RhdGUiOiIyMDE5LTA0LTIxIiwicGFpZFVwVG8iOiIyMDIwLTA0LTIwIn0seyJjb2RlIjoiUk0iLCJmYWxsYmFja0RhdGUiOiIyMDE5LTA0LTIxIiwicGFpZFVwVG8iOiIyMDIwLTA0LTIwIn0seyJjb2RlIjoiV1MiLCJmYWxsYmFja0RhdGUiOiIyMDE5LTA0LTIxIiwicGFpZFVwVG8iOiIyMDIwLTA0LTIwIn0seyJjb2RlIjoiREIiLCJmYWxsYmFja0RhdGUiOiIyMDE5LTA0LTIxIiwicGFpZFVwVG8iOiIyMDIwLTA0LTIwIn0seyJjb2RlIjoiREMiLCJmYWxsYmFja0RhdGUiOiIyMDE5LTA0LTIxIiwicGFpZFVwVG8iOiIyMDIwLTA0LTIwIn0seyJjb2RlIjoiUlNVIiwiZmFsbGJhY2tEYXRlIjoiMjAxOS0wNC0yMSIsInBhaWRVcFRvIjoiMjAyMC0wNC0yMCJ9XSwiaGFzaCI6IjEyNzk2ODc3LzAiLCJncmFjZVBlcmlvZERheXMiOjcsImF1dG9Qcm9sb25nYXRlZCI6ZmFsc2UsImlzQXV0b1Byb2xvbmdhdGVkIjpmYWxzZX0&#x3D;-ti4tUsQISyJF&#x2F;zfWxSHCr+IcYrX2w24JO5bUZCPIGKSi+IrgQ0RT2uum9n96o+Eob9Z1iQ9nUZ6FJdpEW5g0Exe6sw8fLrWMoLFhtCIvVgQxEEt+M7Z2xD0esmjP1kPKXZyc&#x2F;i+NCxA2EO2Sec9uifqklBGP1L3xoENAw2QsIWBfttIe6EPWhbS8TIMMr2vF&#x2F;S3HrN8To5Hj5lwD&#x2F;t1GHgFK1uWrhsuifAiKcVzqogybzGiR1h2+yNYTMbKxP7uPCcdYMsIyrBNVRGA3IuEJgyGQTQlFbnVQoVUTGPW2tQxprmC464wMjKi40JHh27WzjOHPwgzxDaigwn4Z0EbSpA&#x3D;&#x3D;-MIIElTCCAn2gAwIBAgIBCTANBgkqhkiG9w0BAQsFADAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBMB4XDTE4MTEwMTEyMjk0NloXDTIwMTEwMjEyMjk0NlowaDELMAkGA1UEBhMCQ1oxDjAMBgNVBAgMBU51c2xlMQ8wDQYDVQQHDAZQcmFndWUxGTAXBgNVBAoMEEpldEJyYWlucyBzLnIuby4xHTAbBgNVBAMMFHByb2QzeS1mcm9tLTIwMTgxMTAxMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxcQkq+zdxlR2mmRYBPzGbUNdMN6OaXiXzxIWtMEkrJMO&#x2F;5oUfQJbLLuMSMK0QHFmaI37WShyxZcfRCidwXjot4zmNBKnlyHodDij&#x2F;78TmVqFl8nOeD5+07B8VEaIu7c3E1N+e1doC6wht4I4+IEmtsPAdoaj5WCQVQbrI8KeT8M9VcBIWX7fD0fhexfg3ZRt0xqwMcXGNp3DdJHiO0rCdU+Itv7EmtnSVq9jBG1usMSFvMowR25mju2JcPFp1+I4ZI+FqgR8gyG8oiNDyNEoAbsR3lOpI7grUYSvkB&#x2F;xVy&#x2F;VoklPCK2h0f0GJxFjnye8NT1PAywoyl7RmiAVRE&#x2F;EKwIDAQABo4GZMIGWMAkGA1UdEwQCMAAwHQYDVR0OBBYEFGEpG9oZGcfLMGNBkY7SgHiMGgTcMEgGA1UdIwRBMD+AFKOetkhnQhI2Qb1t4Lm0oFKLl&#x2F;GzoRykGjAYMRYwFAYDVQQDDA1KZXRQcm9maWxlIENBggkA0myxg7KDeeEwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0PBAQDAgWgMA0GCSqGSIb3DQEBCwUAA4ICAQAF8uc+YJOHHwOFcPzmbjcxNDuGoOUIP+2h1R75Lecswb7ru2LWWSUMtXVKQzChLNPn&#x2F;72W0k+oI056tgiwuG7M49LXp4zQVlQnFmWU1wwGvVhq5R63Rpjx1zjGUhcXgayu7+9zMUW596Lbomsg8qVve6euqsrFicYkIIuUu4zYPndJwfe0YkS5nY72SHnNdbPhEnN8wcB2Kz+OIG0lih3yz5EqFhld03bGp222ZQCIghCTVL6QBNadGsiN&#x2F;lWLl4JdR3lJkZzlpFdiHijoVRdWeSWqM4y0t23c92HXKrgppoSV18XMxrWVdoSM3nuMHwxGhFyde05OdDtLpCv+jlWf5REAHHA201pAU6bJSZINyHDUTB+Beo28rRXSwSh3OUIvYwKNVeoBY+KwOJ7WnuTCUq1meE6GkKc4D&#x2F;cXmgpOyW&#x2F;1SmBz3XjVIi&#x2F;zprZ0zf3qH5mkphtg6ksjKgKjmx1cXfZAAX6wcDBNaCL+Ortep1Dh8xDUbqbBVNBL4jbiL3i3xsfNiyJgaZ5sX7i8tmStEpLbPwvHcByuf59qJhV&#x2F;bZOl8KqJBETCDJcY6O2aqhTUy+9x93ThKs1GKrRPePrWPluud7ttlgtRveit&#x2F;pcBrnQcXOl1rHq7ByB8CFAxNotRUYL9IF5n3wJOgkPojMy6jetQA5Ogc8Sm7RG6vg1yow&#x3D;&#x3D;</span></pre></td></tr></table></figure>
-<h4 id="四、编译opencv"><a href="#四、编译opencv" class="headerlink" title="四、编译opencv"></a>四、编译opencv</h4><blockquote>
-<p>这里是用的是opencv3.2</p>
-</blockquote>
-</li>
-</ul>
-<p><a href="https://opencv.org/releases/">下载opencv</a></p>
-<ul>
-<li>选择对应平台下载并解压</li>
-<li>打开cmake</li>
-<li>where is the source code选择source文件夹</li>
-<li>where is the binaries 选择 新建的mingw64-build文件夹</li>
-<li>注意上面两个路径不能含有中文目录结构,否则后面会报错</li>
-<li>configure 等待配置</li>
-<li>configure 等待配置</li>
-<li>Gernerate 生成</li>
-<li>cmd进入mingw64-build路径</li>
-<li>输入 mingw32-make -j8</li>
-<li>输入 mingw32-make install</li>
-<li>将mingw64下的bin目录配置到环境变量</li>
-</ul>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo server</span></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo generate</span></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
         </div>
 	
        <ul class="post-copyright">
-        <li><strong>本文标题：</strong><a href="http://yoursite.com/2019/11/28/%E9%85%8D%E7%BD%AEOpenCV/">配置OpenCV</a></li>
+        <li><strong>本文标题：</strong><a href="http://yoursite.com/2020/03/11/hello-world/">Hello World</a></li>
         <li><strong>本文作者：</strong><a href="http://yoursite.com">Trent</a></li>
-        <li><strong>本文链接：</strong><a href="http://yoursite.com/2019/11/28/%E9%85%8D%E7%BD%AEOpenCV/">http://yoursite.com/2019/11/28/%E9%85%8D%E7%BD%AEOpenCV/</a></li>
-        <li><strong>发布时间：</strong>2019-11-28</li>
+        <li><strong>本文链接：</strong><a href="http://yoursite.com/2020/03/11/hello-world/">http://yoursite.com/2020/03/11/hello-world/</a></li>
+        <li><strong>发布时间：</strong>2020-03-11</li>
         <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
         </li>
         </ul>
     
-        
-        <hr style="height:1px;margin:1rem 0"/>
-	<div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="has-link-grey -link" href="/tags/OpenCV/" rel="tag">OpenCV</a>
-                </div>
-            </div>
-        </div>
         
         
         
@@ -280,17 +230,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/12/01/MacOs-catalina-%E9%85%8D%E7%BD%AEzsh%E5%88%AB%E5%90%8D%E5%92%8C%E4%B8%BB%E9%A2%98/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">MacOs catalina 配置zsh别名和主题</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/11/28/java%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/">
-                <span class="level-item">java入门学习</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/10/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
+                <span class="level-item">Java内存模型</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -434,25 +377,25 @@
                     Catalogue
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#Cmake编译Opencv">
+        <a class="is-flex" href="#Quick-Start">
         <span class="has-mr-6">1</span>
-        <span>Cmake编译Opencv</span>
+        <span>Quick Start</span>
         </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#一、安装MinGW-64">
+        <a class="is-flex" href="#Create-a-new-post">
         <span class="has-mr-6">1.1</span>
-        <span>一、安装MinGW-64</span>
+        <span>Create a new post</span>
         </a></li><li>
-        <a class="is-flex" href="#二、-安装cmake">
+        <a class="is-flex" href="#Run-server">
         <span class="has-mr-6">1.2</span>
-        <span>二、 安装cmake</span>
+        <span>Run server</span>
         </a></li><li>
-        <a class="is-flex" href="#三、-安装clion">
+        <a class="is-flex" href="#Generate-static-files">
         <span class="has-mr-6">1.3</span>
-        <span>三、 安装clion</span>
+        <span>Generate static files</span>
         </a></li><li>
-        <a class="is-flex" href="#四、编译opencv">
+        <a class="is-flex" href="#Deploy-to-remote-sites">
         <span class="has-mr-6">1.4</span>
-        <span>四、编译opencv</span>
+        <span>Deploy to remote sites</span>
         </a></li></ul></li></ul>
             </div>
         </div>
@@ -479,7 +422,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="配置OpenCV" height="28">
+                    <img src="/images/logo.svg" alt="Hello World" height="28">
                 
                 </a>
                 <p class="is-size-7">
