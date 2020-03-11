@@ -77,7 +77,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="" height="28">
+                <img src="/images/BlogIcon.svg" alt="" height="28">
             
             </a>
         </div>
@@ -672,14 +672,14 @@
             <div class="level-left">
 		<time class="level-item has-text-grey" datetime="2019-11-27T18:01:03.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-11-28</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-11T05:02:34.939Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-11</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-11T05:08:01.487Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-11</time>
                 
 		
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    18 minutes read (About 2680 words)
+                    18 minutes read (About 2681 words)
                 </span>
                 
                 
@@ -691,243 +691,27 @@
 
 <h3 id="Java-核心优势"><a href="#Java-核心优势" class="headerlink" title="Java 核心优势:"></a>Java 核心优势:</h3><pre><code>跨平台/可移植性</code></pre><h3 id="Java-各个版本"><a href="#Java-各个版本" class="headerlink" title="Java 各个版本"></a>Java 各个版本</h3><pre><code>javaEE(Java Enterprise Edition):企业版:定位在服务器上的应用&lt;br&gt;
 JavaME:微型版----会被安卓取代&lt;br&gt;
-JavaSE==:(Java Sandard Edition) :标准版:定位在个人计算机的应用&lt;br&gt;</code></pre><h3 id="Java-特点"><a href="#Java-特点" class="headerlink" title="Java 特点"></a>Java 特点</h3><pre><code>简单,分布式,多线程,高性能,健壮 </code></pre><h3 id="JVM-JRE-JDK"><a href="#JVM-JRE-JDK" class="headerlink" title="JVM/JRE/JDK"></a>JVM/JRE/JDK</h3><pre><code>JVM(Java Virtual Machine)虚拟机执行字节码
-JRE(Java Runtime Environment) :包含jvm,库函数,必须文件
-JDK(Java Development Kit):包含Jre</code></pre><hr>
-<h2 id = "2">day2 4/15 2019</h2>
-
-<h3 id="抽象类和抽象方法"><a href="#抽象类和抽象方法" class="headerlink" title="抽象类和抽象方法"></a>抽象类和抽象方法</h3><ul>
-<li>1.有抽象方法的类只能是抽象类</li>
-<li>2.抽象类不能实例化(不能用new实例化抽象类),可以用子类实例</li>
-<li>3.抽象类可以包含属性、方法、构造方法,但是构造方法不能用来new实例,只能用来被子类调用</li>
-<li>4.抽象类只能被继承</li>
-<li>5.抽象方法必须被子类实现<h3 id="接口和多继承"><a href="#接口和多继承" class="headerlink" title="接口和多继承"></a>接口和多继承</h3><h4 id="接口interface-接口就是规范"><a href="#接口interface-接口就是规范" class="headerlink" title="接口interface(接口就是规范)"></a>接口interface(接口就是规范)</h4></li>
-<li>方法全部为抽象方法</li>
-<li>变量全为常量</li>
-<li>支持多继承</li>
-<li>不能创建实例 ,但是可以用于引用变量类型</li>
-<li>jdk1.8后包含普通的静态方法<h4 id="实现implement-类似extends"><a href="#实现implement-类似extends" class="headerlink" title="实现implement(类似extends)"></a>实现implement(类似extends)</h4><h3 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h3><h4 id="非静态内部类"><a href="#非静态内部类" class="headerlink" title="非静态内部类"></a>非静态内部类</h4></li>
-</ul>
-<hr>
-<h2 id = "3" >day3 4/16 2019 </h2>
-
-<h3 id="容器类"><a href="#容器类" class="headerlink" title="容器类"></a>容器类</h3><ul>
-<li>collection 容器(集合)<ul>
-<li>List 有顺序,可重复<ul>
-<li>ArrayList</li>
-<li>LinkedList</li>
-</ul>
-</li>
-<li>Set 无顺序,不可重复<ul>
-<li>HashSet</li>
-</ul>
-</li>
-<li>Map 键值对<ul>
-<li>HashMap</li>
-<li>TreeMap</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="collection"><a href="#collection" class="headerlink" title="collection"></a>collection</h4><blockquote>
-<p>方法</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">add()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">toArrary()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">isempty()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">remove()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">contains()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">size()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">clear()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">-----------------------------------</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">addAll()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">containsAll()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">removeAll()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">retainAll()</span></pre></td></tr></table></figure>
-<h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><pre><code>方法和collection基本相同
-set 不允许`e1.equals(e2)==true`的对象放入</code></pre><h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><ul>
-<li>有序:List中每个元素都有索引标记</li>
-<li>可重复:允许加入重复的元素</li>
-</ul>
-<h5 id="ArrayList-数组"><a href="#ArrayList-数组" class="headerlink" title="ArrayList(数组)"></a>ArrayList(数组)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">indexOf() 返回第一次出现的对象的索引值 </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">lastIndex() 返回最后一次出现的对象的索引值</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">copyOf(elementData , int)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">copy</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">add(E)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">add(int,E)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">remove(int)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">System.arraycopy(elementData ,index+1,elementData,index)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">clear()</span></pre></td></tr></table></figure>
-<h5 id="LinkedList-链表"><a href="#LinkedList-链表" class="headerlink" title="LinkedList(链表)"></a>LinkedList(链表)</h5><h5 id="Vector-线程安全的数组"><a href="#Vector-线程安全的数组" class="headerlink" title="Vector(线程安全的数组)"></a>Vector(线程安全的数组)</h5><h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><blockquote>
-<p>Java中泛型的引入是通过泛型擦除机制来实现的<br><br>泛型只在编译中被编译器javac识别&amp;使用，用来确保数据的安全性&amp;免去强制类型转换的麻烦。</p>
-</blockquote>
-<ul>
-<li>可以用继承的方式限制参数类型<blockquote>
-<p>extends Number类可以起到c#中 where T:struct的作用</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h2 id = "4">day4 4/27 2019</h2>
-
-<h3 id="Java异常类型机制"><a href="#Java异常类型机制" class="headerlink" title="Java异常类型机制"></a>Java异常类型机制</h3><h4 id="类结构"><a href="#类结构" class="headerlink" title="类结构"></a>类结构</h4><ul>
-<li>Thrwoable<ul>
-<li>Error</li>
-<li>Exception<ul>
-<li>CheckedException</li>
-<li>RuntimeException<ul>
-<li>uncheckException<h4 id="RutimeException"><a href="#RutimeException" class="headerlink" title="RutimeException"></a>RutimeException</h4><blockquote>
-<p>运行时异常<br><br>由JRE抛出通常需要程序员去修改</p>
-</blockquote>
-<h4 id="checkedException"><a href="#checkedException" class="headerlink" title="checkedException"></a>checkedException</h4><blockquote>
-<p>由编译器处理，在编译时会及时报错</p>
-</blockquote>
-<h3 id="处理方法"><a href="#处理方法" class="headerlink" title="处理方法"></a>处理方法</h3></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>try catch finally 语法格式</li>
-<li>向外抛出，一直到抛到JRE</li>
-</ul>
-<hr>
-<h2 id = "5">day5 4/29 2019</h2>
-
-<h3 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h3><p>注释是给人<strong>程序员</strong>看的，注解是给给程序看的</p>
-<ul>
-<li>@Override：重写</li>
-<li>@Deprecated：过时</li>
-<li>@Suppress warning：压制警告<h4 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h4></li>
-<li>注释注解用的<h5 id="Target"><a href="#Target" class="headerlink" title="@Target"></a>@Target</h5>修饰注解作用范围<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ElemetnType.Type</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Type-&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">PACKAGE-包</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">TYPE-类、接口、枚举值、Annotation类型</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    类型成员：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        1.CONSTRUCTOR-构造器</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        2.FELD-描述域&#x2F;字段</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        3.METHOD-描述方法</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">LOCAL_VARIABLE-描述局部变量</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">PARAMETER-描述参数</span></pre></td></tr></table></figure>
-<h5 id="Retention-保留"><a href="#Retention-保留" class="headerlink" title="@Retention-保留"></a>@Retention-保留</h5>表示需要在什么级别保存该注释信息（生命周期）<br>取值 RetentionPolicy | 作用/保留域</li>
-<li>-|–<br>SOURCE | 在源文件中有效/源文件保留<br>CLASS | 在class文件中有效/class保留<br>RUNTIME | 在运行时有效/运行时保留<strong>可以被反射机制读数</strong></li>
-</ul>
-<h5 id="Documente"><a href="#Documente" class="headerlink" title="@Documente"></a>@Documente</h5><h5 id="Inherited"><a href="#Inherited" class="headerlink" title="@Inherited"></a>@Inherited</h5><h2 id = "6">day6 5/1 2019</h2>
-
-<h3 id="反射机制"><a href="#反射机制" class="headerlink" title="反射机制"></a>反射机制</h3><blockquote>
-<p>在运行时加载、探知、使用、编译期间完全未知的类。<br><br>程序运行时，可以动态加载一个只有名称的类，对于任意一个已加载的类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个属性和方法；<br><br>加载完类后，在<font color=#A52A2A>堆内存</font>中，就产生了一个Class类型的对象(一个类只有一个Class对象)，这个对象包含了完整的累的结构信息。它的作用类似一个<font color=#A52A2A>图纸</font>的作用，这个对象就像是一面镜子，透过这个镜子看到类的结构，我们称之为反射。</p>
-</blockquote>
-<blockquote>
-<ul>
-<li><h4 id="反射的根源是Class类"><a href="#反射的根源是Class类" class="headerlink" title="反射的根源是Class类"></a>反射的根源是Class类</h4></li>
-</ul>
-</blockquote>
-<h4 id="反射可以用来干什么？"><a href="#反射可以用来干什么？" class="headerlink" title="反射可以用来干什么？"></a>反射可以用来干什么？</h4><ul>
-<li>动态加载类、动态获取类的信息（属性、方法、构造器）</li>
-<li>动态构造对象</li>
-<li>动态调用类和对象的任意方法、构造器</li>
-<li>动态调用和处理属性</li>
-<li>获取泛型信息</li>
-<li>处理注解</li>
-</ul>
-<h4 id="java-lang-Class"><a href="#java-lang-Class" class="headerlink" title="java.lang.Class"></a>java.lang.Class</h4><ul>
-<li>一个类被加载后，JVM会创建一个对应该类的Class<font color=#A52A2A>对象</font>,<br>类的整个结构信息会被放到对应的Class对象中<br></li>
-<li>JDK简介<br><br>Instance of the class (Class) represent classes and interfaces in a running Java application.An<br>enum type is a kind of class and an annotation type is a kind of interface.Every array also belongs<br>to a class that is reflected as a<br>object that is shared by all arrays with the same element type and number of dimensions.The primitive Java types,and the keyword(void) are also represented as objects.<br><br>译:<br><br>Class类的实例代表了正在运行的java类和对象。一个枚举class是一个类一个注解class是一个接口。每个数组从属于一个类，且相同数据类型同时维度相同的类从属于同一个类(同样的hashcode)。基本数据类型同和void关键字同样被视为一个类</li>
-</ul>
-<h3 id="Class类对象的获取方式"><a href="#Class类对象的获取方式" class="headerlink" title="Class类对象的获取方式"></a>Class类对象的获取方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; Class.forName(&quot;path&quot;) -最常使用</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; path.getclass()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; class.class</span></pre></td></tr></table></figure>
-
-<h2 id="7">day7 5/2 2019</h2>
-### 反射操作类的名称、属性、方法、构造器
-- 反射创建对象
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; Class.forName(path);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">User u1 &#x3D; (User)clazz.newInstance();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">or加上泛型 </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">Class&lt;User&gt; clazz &#x3D; (Class&lt;User&gt;) Class.forName(path)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">User u1 &#x3D; clazz.newInstance();</span></pre></td></tr></table></figure>
-
-<ul>
-<li>反射获取类的名称<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">try&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    Class clazz &#x3D; Class.forName(&quot;com.sdz.&quot;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    String name &#x3D; clazz.getName()；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    String simplename &#x3D; clazz.getSimpleName();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;catch (Exception e)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    printStackTrace</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure></li>
-<li>反射获取类的属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Field f1 &#x3D; clazz.getDeclaredField(String)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Field fields &#x3D; clazz.getDeclareField()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">- 反射获取类的注解</span></pre></td></tr></table></figure></li>
-<li>反射操作类的属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">User u &#x3D; clazz.newInstance();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">f1.setAccessible(true);&#x2F;&#x2F;跳过安全检查，提高反射性能，大约是原来的4倍</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">f1.set(u,&quot;孙东哲&quot;);&#x2F;&#x2F;通过反射写属性</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">System.out.printle(f1.get());&#x2F;&#x2F;通过反射读属性</span></pre></td></tr></table></figure></li>
-<li>反射获取类的方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Method m1 &#x3D; clazz.getDeclaredMethod(&quot;getUname&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Method[] methods &#x3D; clazz.getDeclaredMethods();</span></pre></td></tr></table></figure></li>
-<li>反射调用普通方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">User u &#x3D; clazz.newInstance();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">m1.invoke(u,&quot;孙东哲&quot;);</span></pre></td></tr></table></figure></li>
-<li>反射获取类的构造器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Constructor c1 &#x3D; clazz.getDeclaredConstructor(int.class,int.class,String.class);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Constructor[] constructors &#x3D; clazz.getDeclaredConstructors();</span></pre></td></tr></table></figure></li>
-<li>反射调用构造方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">User u &#x3D; clazz.newInstance();&#x2F;&#x2F;无参构造器</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">c1.newInstance(1001,18,孙东哲);</span></pre></td></tr></table></figure>
-<h3 id="反射的性能"><a href="#反射的性能" class="headerlink" title="反射的性能"></a>反射的性能</h3><blockquote>
-<p>反射的速度很慢，大约是普通方法调用的30倍<br><br>但是如果跳过反射的安全检查，反射的速度可以增加4倍</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="反射操作泛型"><a href="#反射操作泛型" class="headerlink" title="反射操作泛型"></a>反射操作泛型</h3><p>Java中泛型是给编译器看的，即生命周期仅限于编译期间<br>所以 ，Java增加了ParameterizedType，GenericArrayType,TypeVariable,WildcardType几种类型来代表不能被归一到Class类中的类型但是又和原始类型齐名的类型</p>
-<ul>
-<li>ParameterizedType(参数化类型)<br><br>例如：Collection<String></li>
-<li>GenericArrayType<br><br>表示一种元素类型是参数化类型或者类型变量的数组类型</li>
-<li>TypeVariable<br><br>是各种类型变量的公共父接口</li>
-<li>WildcardType <br><br>代表一种通配符类型表达式，比如？，？extends Number，？super Integer</li>
-</ul>
-<h3 id="反射操作注解"><a href="#反射操作注解" class="headerlink" title="反射操作注解"></a>反射操作注解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">try   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;获取Class对象</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    Class clazz &#x3D; Class.forName(&quot;com.bjsxt.test.annotation.SxtStudent&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;获得类的所有有效注解</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    Annotation[] annotations&#x3D;clazz.getAnnotations(); for (Annotation a : annotations) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    System.out.println(a); &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;获得类的指定的注解</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    SxtTable st &#x3D; (SxtTable) clazz.getAnnotation(SxtTable.class); System.out.println(st.value());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;获得类的属性的注解</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    Field f &#x3D; clazz.getDeclaredField(&quot;studentName&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    SxtField sxtField &#x3D; f.getAnnotation(SxtField.class); System.out.println(sxtField.columnName()+&quot;--&quot;+sxtField.type()+&quot;--&quot;+sxtField.length());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;根据获得的表名、字段的信息，拼出DDL语句，然后，使用JDBC执行这个SQL，在数 据库中生成相关的表</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">&#125; catch (Exception e) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-
-<h3 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h3><p>文件创建</p>
-<ul>
-<li><p>mkdir()</p>
-</li>
-<li><p>mkdir()</p>
-</li>
-<li><p>List()</p>
-</li>
-</ul>
-<h2 id = "8" >day3 5/14 2019 </h2>
-
-<h3 id="final和conset的区别"><a href="#final和conset的区别" class="headerlink" title="final和conset的区别"></a>final和conset的区别</h3><p>final 修饰的变量定义时就需要初始化但是他的值是在运行时确定<br>例如 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">int final a &#x3D; fn();</span></pre></td></tr></table></figure>
-<p>const 修饰的变量在编译时就被确定了</p>
-<h2 id = "9"> day1 5/25 2019</h2>
-
-<h3 id="Java的回调函数"><a href="#Java的回调函数" class="headerlink" title="Java的回调函数"></a>Java的回调函数</h3><blockquote>
-<ul>
-<li>回调函数是由指针实现的，即在特定的事件或条件发生时由另外的一方调用的，作为该事件或条件的响应</li>
-<li>而java中删除了指针的概念，但是可以通过<strong>接口</strong>和<strong>内部类</strong>来实现回调的功能：</li>
-</ul>
-</blockquote>
-<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
-<li>1 定义接口Callback，包含回调方法callback()</li>
-<li>2 在一个类Caller中声明一个Callback接口对象mCallback</li>
-<li>3 在程序中赋予Caller对象的接口成员(mCallback)一个内部类对象例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">new Callback()&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    callback()&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        &#x2F;&#x2F;具体实现</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-<blockquote>
-<p>这样就可以在需要的时候，用Caller对象的mCallback接口成员，调用callback()方法，完成回调。</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
-<li>1 声明回调函数的统一接口(实现可以不同)interface A，包含func()</li>
-<li>2 在调用类caller中将该接口设置为私有成员private A xxx;</li>
-<li>3 在caller内提供一个public的方法，可以将外部“改接口的实现类的引用”通过形参传给XXX;</li>
-<li>4 caller的某个方法call()中会用到xxx.fun()方法；</li>
-<li>5 在caller的实例中，将实现了A接口的对象的引用传给caller，后调用caller()方法</li>
-</ul>
-<h2 id = "10"> day10 6/7 2019</h2>
-
-<h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><ul>
-<li>1.懒汉式</li>
-<li>2.恶汉式</li>
-<li>3.双重锁模式</li>
-<li>4.静态内部类实现</li>
-<li>5.枚举实现</li>
-</ul>
-<h3 id="uml绘制"><a href="#uml绘制" class="headerlink" title="uml绘制"></a>uml绘制</h3><ul>
-<li>rational rose</li>
-<li>metamill</li>
-</ul>
-<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><h4 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h4><ul>
-<li>1.OCP开闭原则</li>
-<li>2.DIP依赖倒置原则</li>
-<li>3.LoD迪米特原则</li>
-</ul>
-<h4 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h4><h4 id="方法工厂模式"><a href="#方法工厂模式" class="headerlink" title="方法工厂模式"></a>方法工厂模式</h4><h4 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h4><h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><h3 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h3><h2 id = "11"> day11 6/16 2019</h2>
-
-<h3 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h3><p>针对不稳定的情况(解决多继承，多个维度)</p>
-<h3 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h3><ul>
-<li>关键 <blockquote>
-<p>对整个树结构里的部分对象和整体对象都是一个统一的处理模式. <br><br>在其中有天然的递归</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="装饰模式"><a href="#装饰模式" class="headerlink" title="装饰模式"></a>装饰模式</h3><p>针对稳定的，<strong>增加新的功能</strong></p>
-<h3 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h3><p><strong>封装</strong></p>
-<h3 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h3><ul>
-<li>1内部状态 可共享</li>
-<li>2外部状态<br>相似或相同对象——》</li>
-</ul>
-<blockquote>
-<p>优点</p>
-</blockquote>
-<p><strong>1 减少对象数量，节省内存<br></strong><br>2 外部状态相对独立</p>
-<blockquote>
-<p>缺点</p>
-</blockquote>
-<p>1 模式较复杂<br>2 节省运行时间</p>
-<h3 id="责任链模式（chain-of-responsibility"><a href="#责任链模式（chain-of-responsibility" class="headerlink" title="责任链模式（chain of responsibility)"></a>责任链模式（chain of responsibility)</h3><p><strong>代替大量的if else 语句</strong></p>
-<p>处理同一类请求的对象</p>
-<h3 id="迭代器模式-iterator-游标模式cursor"><a href="#迭代器模式-iterator-游标模式cursor" class="headerlink" title="迭代器模式 (iterator)/游标模式cursor"></a>迭代器模式 (iterator)/游标模式cursor</h3><p>提供一种可以遍历聚合对象的方式<br><br>通常以内部类的形式出现在聚合对象，便于操作外部对象<br><br>JDK中的set/List等会使用</p>
-<h3 id="中介者模式-Mediator"><a href="#中介者模式-Mediator" class="headerlink" title="中介者模式 (Mediator)"></a>中介者模式 (Mediator)</h3><p><strong>应对复杂结构</strong></p>
-<h2 id = "12"> day12 8/6 2019</h2>
-
-<h3 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h3><p>枚举是一个特殊的类,域成员均为常量<br><br>命名时在结尾加上Enum <br><br>如:ProcessStatusEnum<br><br>变量全部用大写并用下划线隔开</p>
-
+JavaSE==:(Java Sandard Edition) :标准版:定位在个人计算机的应用&lt;br&gt;</code></pre>
         </div>
 	
         
+        
+	<hr style="height:1px;margin:1rem 0"/>
+        <div class="level is-mobile is-flex">
+        <div class="level-start">
+            
+            <div class="level-item is-size-7 is-uppercase">
+                <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>
+            </div>
+            
+        </div>
+        <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/11/28/java%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -1476,7 +1260,7 @@ set 不允许`e1.equals(e2)==true`的对象放入</code></pre><h4 id="List"><a h
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="" height="28">
+                    <img src="/images/BlogIcon.svg" alt="" height="28">
                 
                 </a>
                 <p class="is-size-7">
