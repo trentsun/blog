@@ -11,6 +11,7 @@
 
 
     <meta name="description" content="OkHttp介绍 OkHttp是目前Android使用最频繁的网络请求框架(目前的Volley, Retrofit底层都是使用的OkHttp), 框架由Square公司开源, 在Android4.4之后HttpUrlConnection也默认使用OkHttp的实现在OkHttp4之后改为kotlin实现   优势所在 支持Socket连接池复用TCP连接 支持Http2.0协议 支持Gzip压缩格">
+<meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简简单单的OkHttp源码分析">
 <meta property="og:url" content="https:&#x2F;&#x2F;www.sundongzhe.cn&#x2F;2020&#x2F;05&#x2F;25&#x2F;%E7%AE%80%E7%AE%80%E5%8D%95%E5%8D%95%E7%9A%84OkHttp%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90&#x2F;index.html">
@@ -18,7 +19,7 @@
 <meta property="og:description" content="OkHttp介绍 OkHttp是目前Android使用最频繁的网络请求框架(目前的Volley, Retrofit底层都是使用的OkHttp), 框架由Square公司开源, 在Android4.4之后HttpUrlConnection也默认使用OkHttp的实现在OkHttp4之后改为kotlin实现   优势所在 支持Socket连接池复用TCP连接 支持Http2.0协议 支持Gzip压缩格">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;www.sundongzhe.cn&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2020-05-25T07:16:43.640Z">
+<meta property="og:updated_time" content="2020-05-25T07:23:03.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;www.sundongzhe.cn&#x2F;images&#x2F;og_image.png">
 
@@ -147,7 +148,7 @@
             <div class="level-left">
 		<time class="level-item has-text-grey" datetime="2020-05-25T07:12:53.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-05-25</time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-05-25T07:16:43.640Z"><i class="far fa-calendar-check">&nbsp;</i>2020-05-25</time>
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-05-25T07:23:03.739Z"><i class="far fa-calendar-check">&nbsp;</i>2020-05-25</time>
                 
 		
                 
@@ -199,6 +200,16 @@
         </li>
         </ul>
     
+        
+        <hr style="height:1px;margin:1rem 0"/>
+	<div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/Android/" rel="tag">Android</a>
+                </div>
+            </div>
+        </div>
         
         
         
@@ -330,7 +341,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            3
+                            4
                         </p>
                     </a>
                 </div>
