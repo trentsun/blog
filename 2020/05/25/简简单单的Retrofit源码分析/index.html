@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.0.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>简简单单的Retrofit源码分析</title>
+
+
+    <meta name="description" content="Retrofit做了什么 Retrofit 对 OkHttp进行了一层封装, 对网络层进行了解耦, 主要是通过注解,泛型,动态代理, 还有大量的设计模式来实现的.  Retrofit使用流程分析 构建一个Retrofit对象">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简简单单的Retrofit源码分析">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.sundongzhe.cn&#x2F;2020&#x2F;05&#x2F;25&#x2F;%E7%AE%80%E7%AE%80%E5%8D%95%E5%8D%95%E7%9A%84Retrofit%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90&#x2F;index.html">
+<meta property="og:site_name">
+<meta property="og:description" content="Retrofit做了什么 Retrofit 对 OkHttp进行了一层封装, 对网络层进行了解耦, 主要是通过注解,泛型,动态代理, 还有大量的设计模式来实现的.  Retrofit使用流程分析 构建一个Retrofit对象">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;www.sundongzhe.cn&#x2F;images&#x2F;og_image.png">
+<meta property="og:updated_time" content="2020-06-28T13:17:52.288Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;www.sundongzhe.cn&#x2F;images&#x2F;og_image.png">
+
+
+
+<link rel="canonical" href="https://www.sundongzhe.cn" />
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/github-gist.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-colum">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/BlogIcon.svg" alt="简简单单的Retrofit源码分析" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/sdz630">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+	    
+                <i class="fas fa-angle-double-right"></i>简简单单的Retrofit源码分析
+            
+        </h1>
+	
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+		<time class="level-item has-text-grey" datetime="2020-05-25T07:13:06.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2020-05-25</time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-06-28T13:17:52.288Z"><i class="far fa-calendar-check">&nbsp;</i>2020-06-28</time>
+                
+		
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 minutes read (About 957 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <div class="content">
+            <h4 id="Retrofit做了什么"><a href="#Retrofit做了什么" class="headerlink" title="Retrofit做了什么"></a>Retrofit做了什么</h4><blockquote>
+<p>Retrofit 对 OkHttp进行了一层封装, 对网络层进行了解耦, 主要是通过注解,泛型,动态代理, 还有大量的设计模式来实现的.</p>
+</blockquote>
+<h4 id="Retrofit使用流程分析"><a href="#Retrofit使用流程分析" class="headerlink" title="Retrofit使用流程分析"></a>Retrofit使用流程分析</h4><ol>
+<li>构建一个Retrofit对象<a id="more"></a>
+
+
+</li>
+</ol>
+   <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> retrofit = Retrofit.Builder()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//Retrofit2的baseUrl 必须以 /(斜杆)结束，抛出一个IllegalArgumentException</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">.baseUrl(<span class="string">"https://www.wanandroid.com/"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">.addConverterFactory(GsonConverterFactory.create())</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">.build()</span></pre></td></tr></table></figure>
+
+<p>   通过建造者模式构建对象可以灵活添加、修改功能如自定义OkHttpClient, 自定义转换器, 自定义适配器</p>
+<ol start="2">
+<li>通过Retrofit对象获取到api接口的代理对象</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//2. 获取WanAndroidApi接口的代理对象</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> wanAndroidApi = retrofit.create(WanAndroidApi::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></span></pre></td></tr></table></figure>
+
+<p>​        使用动态代理模式返回一个代理对象, 这里的Api需要提前定义好.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (T) Proxy.newProxyInstance(</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">            service.getClassLoader(),</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">new</span> Class&lt;?&gt;[] &#123;service&#125;,</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">new</span> InvocationHandler() &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">              <span class="keyword">private</span> <span class="keyword">final</span> Platform platform = Platform.get();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">              <span class="keyword">private</span> <span class="keyword">final</span> Object[] emptyArgs = <span class="keyword">new</span> Object[<span class="number">0</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">              <span class="meta">@Override</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">              <span class="keyword">public</span> <span class="meta">@Nullable</span> <span class="function">Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, @Nullable Object[] args)</span><span class="keyword">throws</span> Throwable </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">if</span> (method.getDeclaringClass() == Object<span class="class">.<span class="keyword">class</span>) </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">                  <span class="keyword">return</span> method.invoke(<span class="keyword">this</span>, args);<span class="comment">// Object的方法不属于接口, 直接调用</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">                &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">                args = args != <span class="keyword">null</span> ? args : emptyArgs;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">                <span class="keyword">return</span> platform.isDefaultMethod(method)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">                    ? platform.invokeDefaultMethod(method, service, proxy, args)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">                    : loadServiceMethod(method).invoke(args);<span class="comment">// 在这里去解析注解信息, 然后调用</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">              &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">            &#125;);</span></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li>通过代理对象去调用Api中提供的请求方法</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//3. 获取具体的请求业务方法</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> projectCall = wanAndroidApi.getProject()</span></pre></td></tr></table></figure>
+
+<p>​        调用这个代理对象的方法时会调用到InvocationHandler中的invoke当中, 在里面会去调用loadServiceMethod方法去解析接口的注解参数得到一个ServiceMethod对象, 并将它保存存到ServiceMethodCahce当中, 以便下次调用的时候可以进行复用, 减少反射带来的开销. 然后接着去调用ServiceMethod的invoke方法, 返回一个Retrofit的Call对象, 里面包了一个真正的OkHttpCall对象和http请求参数以及一些适配器,转换器</p>
+<ol start="4">
+<li>发送一个同步/异步请求</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//4. 发起请求</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">// 同步</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//        val projectBean  = projectCall.execute()</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        <span class="comment">//异步</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"> projectCall.enqueue(<span class="keyword">object</span> : Callback&lt;ProjectBean&gt; &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">      <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onFailure</span><span class="params">(call: <span class="type">Call</span>&lt;<span class="type">ProjectBean</span>&gt;, t: <span class="type">Throwable</span>)</span></span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">          Log.i(TAG,<span class="string">"错误：<span class="subst">$&#123;t.message&#125;</span>"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">      &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">      <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onResponse</span><span class="params">(call: <span class="type">Call</span>&lt;<span class="type">ProjectBean</span>&gt;, response: <span class="type">Response</span>&lt;<span class="type">ProjectBean</span>&gt;)</span></span> &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">          Log.i(TAG,<span class="string">"成功： <span class="subst">$&#123;response.body().toString()&#125;</span>"</span>)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">      &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">&#125;)</span></pre></td></tr></table></figure>
+
+<p>这里可以传入一个接口回调, 默认配置情况下会使用DefaultCallAdapterFactory创建的Call, 也可以配合RxJava进行使用. 然后会调用到OkHttpCall的enqueue, 请求返回后OkHttp会去回调刚刚传入的接口回调</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(okhttp3.Call call, okhttp3.Response rawResponse)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    Response&lt;T&gt; response;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    response = parseResponse(rawResponse);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">            ...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    callback.onResponse(OkHttpCall.<span class="keyword">this</span>, response);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">            ...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">callFailure</span><span class="params">(Throwable e)</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">       ...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        callback.onFailure(OkHttpCall.<span class="keyword">this</span>, e);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    ...</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<h4 id="关键类分析"><a href="#关键类分析" class="headerlink" title="关键类分析"></a>关键类分析</h4><h5 id="Retrofit"><a href="#Retrofit" class="headerlink" title="Retrofit"></a>Retrofit</h5><pre><code>1.  serviceMethodCache(缓存的完整的调用, 对应一个url)
+ 2.  baseUrl (地址)
+ 3.  callFactory 
+ 4.  converterFactories(数据解析)
+ 5.  callAdapterFactories(适配器)
+ 6.  callbackExecutor</code></pre><h5 id="Platform-平台"><a href="#Platform-平台" class="headerlink" title="Platform(平台)"></a>Platform(平台)</h5><p>Platform使用恶汉式单例提供它的实例</p>
+<p>如果是Dalvik虚拟机提供Android平台, 否则提供Java(8)平台</p>
+<h5 id="Call"><a href="#Call" class="headerlink" title="Call"></a>Call</h5><p>Retrofit中定义的网络请求接口</p>
+<h5 id="OkHttpCall"><a href="#OkHttpCall" class="headerlink" title="OkHttpCall"></a>OkHttpCall</h5><p>OkHttp的Call实现, 可以通过getRawCall拿到okhttp3.Call对象</p>
+<h5 id="CallAdapter-Factory"><a href="#CallAdapter-Factory" class="headerlink" title="CallAdapter.Factory"></a>CallAdapter.Factory</h5><p>calllAdapter静态工厂, 生产CalllAdapter对象</p>
+<h4 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h4><ol>
+<li><p>建造者模式</p>
+<p>Retrofit, ServiceMethod对象的创建都用到了建造者模式, 简化了复杂对象的创建过程</p>
+</li>
+<li><p>外观模式</p>
+<p>Retrofit对外提供了统一的接口, 屏蔽了内部实现, 使用更加简单.</p>
+<p>简单的说就是通过提供一个高层接口去间接访问到子系统的不同接口, 类似一个接口整合的过程</p>
+</li>
+<li><p>动态代理模式</p>
+<p>通过生成一个代理对象, 并对代理对象进行监听, 当执行方法的时候自动回调到invocationHandler中.</p>
+</li>
+<li><p>静态代理模式</p>
+<p>Android平台默认使用DefaultCallbackFactory.ExecutorCallback, 具体实现delegate就是OkHttpCall</p>
+</li>
+<li><p>工厂模式</p>
+<p>Converter和CallAdapter的创建过程都是使用工厂模式来实现的</p>
+</li>
+<li><p>适配器模式</p>
+<p>看名字就知道CallAdapter.adapt使用了适配器模式, 可以对call进行动态扩展, 添加回调、观察者都可以</p>
+</li>
+</ol>
+
+        </div>
+	
+       <ul class="post-copyright">
+        <li><strong>本文标题：</strong><a href="https://www.sundongzhe.cn/2020/05/25/%E7%AE%80%E7%AE%80%E5%8D%95%E5%8D%95%E7%9A%84Retrofit%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">简简单单的Retrofit源码分析</a></li>
+        <li><strong>本文作者：</strong><a href="https://www.sundongzhe.cn">Hillo Wolrd</a></li>
+        <li><strong>本文链接：</strong><a href="https://www.sundongzhe.cn/2020/05/25/%E7%AE%80%E7%AE%80%E5%8D%95%E5%8D%95%E7%9A%84Retrofit%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">https://www.sundongzhe.cn/2020/05/25/%E7%AE%80%E7%AE%80%E5%8D%95%E5%8D%95%E7%9A%84Retrofit%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</a></li>
+        <li><strong>发布时间：</strong>2020-05-25</li>
+        <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+        </li>
+        </ul>
+    
+        
+        <hr style="height:1px;margin:1rem 0"/>
+	<div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
+                    <a class="has-link-grey -link" href="/tags/Android/" rel="tag">Android</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/images/ALIPay.jpg" alt="Alipay"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/images/WXPay.png" alt="Wechat"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2021/01/17/A-Good-Start/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">A Good Start</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/05/25/%E7%AE%80%E7%AE%80%E5%8D%95%E5%8D%95%E7%9A%84OkHttp%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+                <span class="level-item">简简单单的OkHttp源码分析</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/touxiang.jpg" alt="Hillo World">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Hillo World
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Student
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>China,Chongqing</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            13
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            0
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            5
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/sdz630" target="_blank" rel="noopener">
+                Follow</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/sdz630">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    Catalogue
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#Retrofit做了什么">
+        <span class="has-mr-6">1</span>
+        <span>Retrofit做了什么</span>
+        </a></li><li>
+        <a class="is-flex" href="#Retrofit使用流程分析">
+        <span class="has-mr-6">2</span>
+        <span>Retrofit使用流程分析</span>
+        </a></li><li>
+        <a class="is-flex" href="#关键类分析">
+        <span class="has-mr-6">3</span>
+        <span>关键类分析</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Retrofit">
+        <span class="has-mr-6">3.1</span>
+        <span>Retrofit</span>
+        </a></li><li>
+        <a class="is-flex" href="#Platform-平台">
+        <span class="has-mr-6">3.2</span>
+        <span>Platform(平台)</span>
+        </a></li><li>
+        <a class="is-flex" href="#Call">
+        <span class="has-mr-6">3.3</span>
+        <span>Call</span>
+        </a></li><li>
+        <a class="is-flex" href="#OkHttpCall">
+        <span class="has-mr-6">3.4</span>
+        <span>OkHttpCall</span>
+        </a></li><li>
+        <a class="is-flex" href="#CallAdapter-Factory">
+        <span class="has-mr-6">3.5</span>
+        <span>CallAdapter.Factory</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#设计模式">
+        <span class="has-mr-6">4</span>
+        <span>设计模式</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+
+                
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/BlogIcon.svg" alt="简简单单的Retrofit源码分析" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2021 Hillo Wolrd&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://www.sundongzhe.cn',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
