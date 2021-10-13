@@ -1,173 +1,9 @@
-<!DOCTYPE html>
-<html  lang="en">
-<head>
-    <meta charset="utf-8" />
-
-<meta name="generator" content="Hexo 4.0.0" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-<title>java入门学习</title>
-
-
-    <meta name="description" content="Java (c++-)学习笔记 day1 4&#x2F;14 2019  Java 核心优势:跨平台&#x2F;可移植性Java 各个版本javaEE(Java Enterprise Edition):企业版:定位在服务器上的应用&amp;lt;br&amp;gt; JavaME:微型版----会被安卓取代&amp;lt;br&amp;gt; JavaSE&#x3D;&#x3D;:(Java Sandard Edition) :标准版:定位在个人计算机的应用&amp;lt;b">
-<meta name="keywords" content="java">
-<meta property="og:type" content="article">
-<meta property="og:title" content="java入门学习">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.sundongzhe.cn&#x2F;2019&#x2F;11&#x2F;28&#x2F;java%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0&#x2F;index.html">
-<meta property="og:site_name">
-<meta property="og:description" content="Java (c++-)学习笔记 day1 4&#x2F;14 2019  Java 核心优势:跨平台&#x2F;可移植性Java 各个版本javaEE(Java Enterprise Edition):企业版:定位在服务器上的应用&amp;lt;br&amp;gt; JavaME:微型版----会被安卓取代&amp;lt;br&amp;gt; JavaSE&#x3D;&#x3D;:(Java Sandard Edition) :标准版:定位在个人计算机的应用&amp;lt;b">
-<meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;www.sundongzhe.cn&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2020-03-11T05:08:01.487Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;www.sundongzhe.cn&#x2F;images&#x2F;og_image.png">
-
-
-
-<link rel="canonical" href="https://www.sundongzhe.cn" />
-
-
-
-
-
-<link rel="icon" href="/images/favicon.svg">
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/github-gist.css">
-
-
-    
-    
-<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
-
-    
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
-
-    
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
-
-    
-    
-    
-    
-<link rel="stylesheet" href="/css/back-to-top.css">
-
-    
-    
-    
-    
-    
-    
-    
-    <link rel="stylesheet" href="/css/progressbar.css">
-<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
-    
-    
-    
-
-
-<link rel="stylesheet" href="/css/style.css">
-</head>
-<body class="is-3-colum">
-    <nav class="navbar navbar-main">
-    <div class="container">
-        <div class="navbar-brand is-flex-center">
-            <a class="navbar-item navbar-logo" href="/">
-            
-                <img src="/images/BlogIcon.svg" alt="java入门学习" height="28">
-            
-            </a>
-        </div>
-        <div class="navbar-menu">
-            
-            <div class="navbar-start">
-                
-                <a class="navbar-item"
-                href="/">主页</a>
-                
-                <a class="navbar-item"
-                href="/archives">归档</a>
-                
-                <a class="navbar-item"
-                href="/categories">分类</a>
-                
-                <a class="navbar-item"
-                href="/tags">标签</a>
-                
-                <a class="navbar-item"
-                href="/about">关于</a>
-                
-            </div>
-            
-            <div class="navbar-end">
-                
-                    
-                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/sdz630">
-                        
-                        <i class="fab fa-github"></i>
-                        
-                    </a>
-                    
-                
-                
-                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
-                    <i class="fas fa-list-ul"></i>
-                </a>
-                
-                
-                <a class="navbar-item search" title="Search" href="javascript:;">
-                    <i class="fas fa-search"></i>
-                </a>
-                
-            </div>
-        </div>
-    </div>
-</nav>
-    
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-9-widescreen has-order-2 column-main">
-<div class="card">
-    
-    <div class="card-content article ">
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-	    
-                <i class="fas fa-angle-double-right"></i>java入门学习
-            
-        </h1>
-	
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-		<time class="level-item has-text-grey" datetime="2019-11-27T18:01:03.000Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-11-28</time>
-                
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-03-11T05:08:01.487Z"><i class="far fa-calendar-check">&nbsp;</i>2020-03-11</time>
-                
-		
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    18 minutes read (About 2681 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <div class="content">
-            <h1 id="Java-c-学习笔记"><a href="#Java-c-学习笔记" class="headerlink" title="Java (c++-)学习笔记"></a>Java (c++-)学习笔记</h1><h2 id = "1"> day1 4/14 2019</h2>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>java入门学习</title><link rel="manifest" href="/manifest.json"><meta name="application-name"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Java (c++-)学习笔记 day1 4&amp;#x2F;14 2019  Java 核心优势:跨平台&amp;#x2F;可移植性Java 各个版本javaEE(Java Enterprise Edition):企业版:定位在服务器上的应用&amp;lt;br&amp;gt; JavaME:微型版----会被安卓取代&amp;lt;br&amp;gt; JavaSE&amp;#x3D;&amp;#x3D;:(Java Sandard Edition) :标准版:定位在个人计算机的应用&amp;lt;b"><meta property="og:type" content="article"><meta property="og:title" content="java入门学习"><meta property="og:url" content="https://www.sundongzhe.cn/2019/11/28/java%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/"><meta property="og:site_name"><meta property="og:description" content="Java (c++-)学习笔记 day1 4&amp;#x2F;14 2019  Java 核心优势:跨平台&amp;#x2F;可移植性Java 各个版本javaEE(Java Enterprise Edition):企业版:定位在服务器上的应用&amp;lt;br&amp;gt; JavaME:微型版----会被安卓取代&amp;lt;br&amp;gt; JavaSE&amp;#x3D;&amp;#x3D;:(Java Sandard Edition) :标准版:定位在个人计算机的应用&amp;lt;b"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://www.sundongzhe.cn/img/og_image.png"><meta property="article:published_time" content="2019-11-27T18:01:03.000Z"><meta property="article:modified_time" content="2020-03-11T05:08:01.487Z"><meta property="article:author" content="Hillo Wolrd"><meta property="article:tag" content="java"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.sundongzhe.cn/2019/11/28/java%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/"},"headline":"java入门学习","image":["https://www.sundongzhe.cn/img/og_image.png"],"datePublished":"2019-11-27T18:01:03.000Z","dateModified":"2020-03-11T05:08:01.487Z","author":{"@type":"Person","name":"Hillo Wolrd"},"publisher":{"@type":"Organization","name":null,"logo":{"@type":"ImageObject","url":"https://www.sundongzhe.cn/images/hellowolrd.png"}},"description":"Java (c++-)学习笔记 day1 4&#x2F;14 2019  Java 核心优势:跨平台&#x2F;可移植性Java 各个版本javaEE(Java Enterprise Edition):企业版:定位在服务器上的应用&lt;br&gt; JavaME:微型版----会被安卓取代&lt;br&gt; JavaSE&#x3D;&#x3D;:(Java Sandard Edition) :标准版:定位在个人计算机的应用&lt;b"}</script><link rel="canonical" href="https://www.sundongzhe.cn/2019/11/28/java%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/github-gist.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.4.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/images/hellowolrd.png" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/sdz630"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-11-27T18:01:03.000Z" title="11/28/2019, 2:01:03 AM">2019-11-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2020-03-11T05:08:01.487Z" title="3/11/2020, 1:08:01 PM">2020-03-11</time></span><span class="level-item">18 minutes read (About 2681 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">java入门学习</h1><div class="content"><h1 id="Java-c-学习笔记"><a href="#Java-c-学习笔记" class="headerlink" title="Java (c++-)学习笔记"></a>Java (c++-)学习笔记</h1><h2 id = "1"> day1 4/14 2019</h2>
 
 <h3 id="Java-核心优势"><a href="#Java-核心优势" class="headerlink" title="Java 核心优势:"></a>Java 核心优势:</h3><pre><code>跨平台/可移植性</code></pre><h3 id="Java-各个版本"><a href="#Java-各个版本" class="headerlink" title="Java 各个版本"></a>Java 各个版本</h3><pre><code>javaEE(Java Enterprise Edition):企业版:定位在服务器上的应用&lt;br&gt;
 JavaME:微型版----会被安卓取代&lt;br&gt;
-JavaSE==:(Java Sandard Edition) :标准版:定位在个人计算机的应用&lt;br&gt;</code></pre><a id="more"></a>
+JavaSE==:(Java Sandard Edition) :标准版:定位在个人计算机的应用&lt;br&gt;</code></pre><span id="more"></span>
 <h3 id="Java-特点"><a href="#Java-特点" class="headerlink" title="Java 特点"></a>Java 特点</h3><pre><code>简单,分布式,多线程,高性能,健壮 </code></pre><h3 id="JVM-JRE-JDK"><a href="#JVM-JRE-JDK" class="headerlink" title="JVM/JRE/JDK"></a>JVM/JRE/JDK</h3><pre><code>JVM(Java Virtual Machine)虚拟机执行字节码
 JRE(Java Runtime Environment) :包含jvm,库函数,必须文件
 JDK(Java Development Kit):包含Jre</code></pre><hr>
@@ -210,13 +46,13 @@ JDK(Java Development Kit):包含Jre</code></pre><hr>
 <h4 id="collection"><a href="#collection" class="headerlink" title="collection"></a>collection</h4><blockquote>
 <p>方法</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">add()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">toArrary()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">isempty()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">remove()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">contains()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">size()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">clear()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">-----------------------------------</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">addAll()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">containsAll()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">removeAll()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">retainAll()</span></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">add()</span><br><span class="line">toArrary()</span><br><span class="line">isempty()</span><br><span class="line">remove()</span><br><span class="line">contains()</span><br><span class="line">size()</span><br><span class="line">clear()</span><br><span class="line">-----------------------------------</span><br><span class="line">addAll()</span><br><span class="line">containsAll()</span><br><span class="line">removeAll()</span><br><span class="line">retainAll()</span><br></pre></td></tr></table></figure>
 <h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><pre><code>方法和collection基本相同
 set 不允许`e1.equals(e2)==true`的对象放入</code></pre><h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><ul>
 <li>有序:List中每个元素都有索引标记</li>
 <li>可重复:允许加入重复的元素</li>
 </ul>
-<h5 id="ArrayList-数组"><a href="#ArrayList-数组" class="headerlink" title="ArrayList(数组)"></a>ArrayList(数组)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">indexOf() 返回第一次出现的对象的索引值 </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">lastIndex() 返回最后一次出现的对象的索引值</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">copyOf(elementData , int)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">copy</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">add(E)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">add(int,E)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">remove(int)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">System.arraycopy(elementData ,index+1,elementData,index)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">clear()</span></pre></td></tr></table></figure>
+<h5 id="ArrayList-数组"><a href="#ArrayList-数组" class="headerlink" title="ArrayList(数组)"></a>ArrayList(数组)</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">indexOf() 返回第一次出现的对象的索引值 </span><br><span class="line">lastIndex() 返回最后一次出现的对象的索引值</span><br><span class="line">copyOf(elementData , int)</span><br><span class="line">copy</span><br><span class="line">add(E)</span><br><span class="line">add(int,E)</span><br><span class="line">remove(int)</span><br><span class="line">System.arraycopy(elementData ,index+1,elementData,index)</span><br><span class="line">clear()</span><br></pre></td></tr></table></figure>
 <h5 id="LinkedList-链表"><a href="#LinkedList-链表" class="headerlink" title="LinkedList(链表)"></a>LinkedList(链表)</h5><h5 id="Vector-线程安全的数组"><a href="#Vector-线程安全的数组" class="headerlink" title="Vector(线程安全的数组)"></a>Vector(线程安全的数组)</h5><h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><blockquote>
 <p>Java中泛型的引入是通过泛型擦除机制来实现的<br><br>泛型只在编译中被编译器javac识别&amp;使用，用来确保数据的安全性&amp;免去强制类型转换的麻烦。</p>
 </blockquote>
@@ -259,7 +95,7 @@ set 不允许`e1.equals(e2)==true`的对象放入</code></pre><h4 id="List"><a h
 <li>@Override：重写</li>
 <li>@Deprecated：过时</li>
 <li>@Suppress warning：压制警告<h4 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h4></li>
-<li>注释注解用的<h5 id="Target"><a href="#Target" class="headerlink" title="@Target"></a>@Target</h5>修饰注解作用范围<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">ElemetnType.Type</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Type-&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">PACKAGE-包</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">TYPE-类、接口、枚举值、Annotation类型</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    类型成员：</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">        1.CONSTRUCTOR-构造器</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">        2.FELD-描述域&#x2F;字段</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">        3.METHOD-描述方法</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">LOCAL_VARIABLE-描述局部变量</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">PARAMETER-描述参数</span></pre></td></tr></table></figure>
+<li>注释注解用的<h5 id="Target"><a href="#Target" class="headerlink" title="@Target"></a>@Target</h5>修饰注解作用范围<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ElemetnType.Type</span><br><span class="line">Type-&gt;</span><br><span class="line">PACKAGE-包</span><br><span class="line">TYPE-类、接口、枚举值、Annotation类型</span><br><span class="line">    类型成员：</span><br><span class="line">        1.CONSTRUCTOR-构造器</span><br><span class="line">        2.FELD-描述域/字段</span><br><span class="line">        3.METHOD-描述方法</span><br><span class="line">LOCAL_VARIABLE-描述局部变量</span><br><span class="line">PARAMETER-描述参数</span><br></pre></td></tr></table></figure>
 <h5 id="Retention-保留"><a href="#Retention-保留" class="headerlink" title="@Retention-保留"></a>@Retention-保留</h5>表示需要在什么级别保存该注释信息（生命周期）<br>取值 RetentionPolicy | 作用/保留域</li>
 <li>-|–<br>SOURCE | 在源文件中有效/源文件保留<br>CLASS | 在class文件中有效/class保留<br>RUNTIME | 在运行时有效/运行时保留<strong>可以被反射机制读数</strong></li>
 </ul>
@@ -285,22 +121,22 @@ set 不允许`e1.equals(e2)==true`的对象放入</code></pre><h4 id="List"><a h
 <li>一个类被加载后，JVM会创建一个对应该类的Class<font color=#A52A2A>对象</font>,<br>类的整个结构信息会被放到对应的Class对象中<br></li>
 <li>JDK简介<br><br>Instance of the class (Class) represent classes and interfaces in a running Java application.An<br>enum type is a kind of class and an annotation type is a kind of interface.Every array also belongs<br>to a class that is reflected as a<br>object that is shared by all arrays with the same element type and number of dimensions.The primitive Java types,and the keyword(void) are also represented as objects.<br><br>译:<br><br>Class类的实例代表了正在运行的java类和对象。一个枚举class是一个类一个注解class是一个接口。每个数组从属于一个类，且相同数据类型同时维度相同的类从属于同一个类(同样的hashcode)。基本数据类型同和void关键字同样被视为一个类</li>
 </ul>
-<h3 id="Class类对象的获取方式"><a href="#Class类对象的获取方式" class="headerlink" title="Class类对象的获取方式"></a>Class类对象的获取方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; Class.forName(&quot;path&quot;) -最常使用</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; path.getclass()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; class.class</span></pre></td></tr></table></figure>
+<h3 id="Class类对象的获取方式"><a href="#Class类对象的获取方式" class="headerlink" title="Class类对象的获取方式"></a>Class类对象的获取方式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class clazz = Class.forName(&quot;path&quot;) -最常使用</span><br><span class="line">Class clazz = path.getclass()</span><br><span class="line">Class clazz = class.class</span><br></pre></td></tr></table></figure>
 
 <h2 id="7">day7 5/2 2019</h2>
 ### 反射操作类的名称、属性、方法、构造器
 - 反射创建对象
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Class clazz &#x3D; Class.forName(path);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">User u1 &#x3D; (User)clazz.newInstance();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">or加上泛型 </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">Class&lt;User&gt; clazz &#x3D; (Class&lt;User&gt;) Class.forName(path)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">User u1 &#x3D; clazz.newInstance();</span></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Class clazz = Class.forName(path);</span><br><span class="line">User u1 = (User)clazz.newInstance();</span><br><span class="line">or加上泛型 </span><br><span class="line">Class&lt;User&gt; clazz = (Class&lt;User&gt;) Class.forName(path)</span><br><span class="line">User u1 = clazz.newInstance();</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>反射获取类的名称<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">try&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    Class clazz &#x3D; Class.forName(&quot;com.sdz.&quot;)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    String name &#x3D; clazz.getName()；</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    String simplename &#x3D; clazz.getSimpleName();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;catch (Exception e)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    printStackTrace</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure></li>
-<li>反射获取类的属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Field f1 &#x3D; clazz.getDeclaredField(String)</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Field fields &#x3D; clazz.getDeclareField()</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">- 反射获取类的注解</span></pre></td></tr></table></figure></li>
-<li>反射操作类的属性<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">User u &#x3D; clazz.newInstance();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">f1.setAccessible(true);&#x2F;&#x2F;跳过安全检查，提高反射性能，大约是原来的4倍</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">f1.set(u,&quot;孙东哲&quot;);&#x2F;&#x2F;通过反射写属性</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">System.out.printle(f1.get());&#x2F;&#x2F;通过反射读属性</span></pre></td></tr></table></figure></li>
-<li>反射获取类的方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Method m1 &#x3D; clazz.getDeclaredMethod(&quot;getUname&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Method[] methods &#x3D; clazz.getDeclaredMethods();</span></pre></td></tr></table></figure></li>
-<li>反射调用普通方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">User u &#x3D; clazz.newInstance();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">m1.invoke(u,&quot;孙东哲&quot;);</span></pre></td></tr></table></figure></li>
-<li>反射获取类的构造器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">Constructor c1 &#x3D; clazz.getDeclaredConstructor(int.class,int.class,String.class);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">Constructor[] constructors &#x3D; clazz.getDeclaredConstructors();</span></pre></td></tr></table></figure></li>
-<li>反射调用构造方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">User u &#x3D; clazz.newInstance();&#x2F;&#x2F;无参构造器</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">c1.newInstance(1001,18,孙东哲);</span></pre></td></tr></table></figure>
+<li>反射获取类的名称<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">try&#123;</span><br><span class="line">    Class clazz = Class.forName(&quot;com.sdz.&quot;)</span><br><span class="line">    String name = clazz.getName()；</span><br><span class="line">    String simplename = clazz.getSimpleName();</span><br><span class="line">&#125;catch (Exception e)&#123;</span><br><span class="line">    printStackTrace</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>反射获取类的属性<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Field f1 = clazz.getDeclaredField(String)</span><br><span class="line">Field fields = clazz.getDeclareField()</span><br><span class="line">- 反射获取类的注解</span><br></pre></td></tr></table></figure></li>
+<li>反射操作类的属性<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">User u = clazz.newInstance();</span><br><span class="line">f1.setAccessible(true);//跳过安全检查，提高反射性能，大约是原来的4倍</span><br><span class="line">f1.set(u,&quot;孙东哲&quot;);//通过反射写属性</span><br><span class="line">System.out.printle(f1.get());//通过反射读属性</span><br></pre></td></tr></table></figure></li>
+<li>反射获取类的方法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Method m1 = clazz.getDeclaredMethod(&quot;getUname&quot;);</span><br><span class="line">Method[] methods = clazz.getDeclaredMethods();</span><br></pre></td></tr></table></figure></li>
+<li>反射调用普通方法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User u = clazz.newInstance();</span><br><span class="line">m1.invoke(u,&quot;孙东哲&quot;);</span><br></pre></td></tr></table></figure></li>
+<li>反射获取类的构造器<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Constructor c1 = clazz.getDeclaredConstructor(int.class,int.class,String.class);</span><br><span class="line">Constructor[] constructors = clazz.getDeclaredConstructors();</span><br></pre></td></tr></table></figure></li>
+<li>反射调用构造方法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User u = clazz.newInstance();//无参构造器</span><br><span class="line">c1.newInstance(1001,18,孙东哲);</span><br></pre></td></tr></table></figure>
 <h3 id="反射的性能"><a href="#反射的性能" class="headerlink" title="反射的性能"></a>反射的性能</h3><blockquote>
 <p>反射的速度很慢，大约是普通方法调用的30倍<br><br>但是如果跳过反射的安全检查，反射的速度可以增加4倍</p>
 </blockquote>
@@ -313,7 +149,7 @@ set 不允许`e1.equals(e2)==true`的对象放入</code></pre><h4 id="List"><a h
 <li>TypeVariable<br><br>是各种类型变量的公共父接口</li>
 <li>WildcardType <br><br>代表一种通配符类型表达式，比如？，？extends Number，？super Integer</li>
 </ul>
-<h3 id="反射操作注解"><a href="#反射操作注解" class="headerlink" title="反射操作注解"></a>反射操作注解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">try   </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;获取Class对象</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    Class clazz &#x3D; Class.forName(&quot;com.bjsxt.test.annotation.SxtStudent&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;获得类的所有有效注解</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    Annotation[] annotations&#x3D;clazz.getAnnotations(); for (Annotation a : annotations) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    System.out.println(a); &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;获得类的指定的注解</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    SxtTable st &#x3D; (SxtTable) clazz.getAnnotation(SxtTable.class); System.out.println(st.value());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;获得类的属性的注解</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">    Field f &#x3D; clazz.getDeclaredField(&quot;studentName&quot;);</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    SxtField sxtField &#x3D; f.getAnnotation(SxtField.class); System.out.println(sxtField.columnName()+&quot;--&quot;+sxtField.type()+&quot;--&quot;+sxtField.length());</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">    &#x2F;&#x2F;根据获得的表名、字段的信息，拼出DDL语句，然后，使用JDBC执行这个SQL，在数 据库中生成相关的表</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">&#125; catch (Exception e) &#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">e.printStackTrace();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+<h3 id="反射操作注解"><a href="#反射操作注解" class="headerlink" title="反射操作注解"></a>反射操作注解</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">try   </span><br><span class="line">&#123;</span><br><span class="line">    //获取Class对象</span><br><span class="line">    Class clazz = Class.forName(&quot;com.bjsxt.test.annotation.SxtStudent&quot;);</span><br><span class="line">    //获得类的所有有效注解</span><br><span class="line">    Annotation[] annotations=clazz.getAnnotations(); for (Annotation a : annotations) &#123;</span><br><span class="line">    System.out.println(a); &#125;</span><br><span class="line">    //获得类的指定的注解</span><br><span class="line">    SxtTable st = (SxtTable) clazz.getAnnotation(SxtTable.class); System.out.println(st.value());</span><br><span class="line">    //获得类的属性的注解</span><br><span class="line">    Field f = clazz.getDeclaredField(&quot;studentName&quot;);</span><br><span class="line">    SxtField sxtField = f.getAnnotation(SxtField.class); System.out.println(sxtField.columnName()+&quot;--&quot;+sxtField.type()+&quot;--&quot;+sxtField.length());</span><br><span class="line">    //根据获得的表名、字段的信息，拼出DDL语句，然后，使用JDBC执行这个SQL，在数 据库中生成相关的表</span><br><span class="line">&#125; catch (Exception e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h3><p>文件创建</p>
 <ul>
@@ -327,7 +163,7 @@ set 不允许`e1.equals(e2)==true`的对象放入</code></pre><h4 id="List"><a h
 <h2 id = "8" >day3 5/14 2019 </h2>
 
 <h3 id="final和conset的区别"><a href="#final和conset的区别" class="headerlink" title="final和conset的区别"></a>final和conset的区别</h3><p>final 修饰的变量定义时就需要初始化但是他的值是在运行时确定<br>例如 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">int final a &#x3D; fn();</span></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int final a = fn();</span><br></pre></td></tr></table></figure>
 <p>const 修饰的变量在编译时就被确定了</p>
 <h2 id = "9"> day1 5/25 2019</h2>
 
@@ -340,7 +176,7 @@ set 不允许`e1.equals(e2)==true`的对象放入</code></pre><h4 id="List"><a h
 <h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
 <li>1 定义接口Callback，包含回调方法callback()</li>
 <li>2 在一个类Caller中声明一个Callback接口对象mCallback</li>
-<li>3 在程序中赋予Caller对象的接口成员(mCallback)一个内部类对象例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">new Callback()&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    callback()&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        &#x2F;&#x2F;具体实现</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+<li>3 在程序中赋予Caller对象的接口成员(mCallback)一个内部类对象例如<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">new Callback()&#123;</span><br><span class="line">    callback()&#123;</span><br><span class="line">        //具体实现</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>这样就可以在需要的时候，用Caller对象的mCallback接口成员，调用callback()方法，完成回调。</p>
 </blockquote>
@@ -401,607 +237,39 @@ set 不允许`e1.equals(e2)==true`的对象放入</code></pre><h4 id="List"><a h
 <h2 id = "12"> day12 8/6 2019</h2>
 
 <h3 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h3><p>枚举是一个特殊的类,域成员均为常量<br><br>命名时在结尾加上Enum <br><br>如:ProcessStatusEnum<br><br>变量全部用大写并用下划线隔开</p>
-
-        </div>
-	
-       <ul class="post-copyright">
-        <li><strong>本文标题：</strong><a href="https://www.sundongzhe.cn/2019/11/28/java%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/">java入门学习</a></li>
-        <li><strong>本文作者：</strong><a href="https://www.sundongzhe.cn">Hillo Wolrd</a></li>
-        <li><strong>本文链接：</strong><a href="https://www.sundongzhe.cn/2019/11/28/java%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/">https://www.sundongzhe.cn/2019/11/28/java%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/</a></li>
-        <li><strong>发布时间：</strong>2019-11-28</li>
-        <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
-        </li>
-        </ul>
-    
-        
-        <hr style="height:1px;margin:1rem 0"/>
-	<div class="level is-size-7 is-uppercase">
-            <div class="level-start">
-                <div class="level-item">
-                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="has-link-grey -link" href="/tags/java/" rel="tag">java</a>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-<div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
-        <div class="buttons is-centered">
-            
-                
-<a class="button is-info donate">
-    <span class="icon is-small">
-        <i class="fab fa-alipay"></i>
-    </span>
-    <span>Alipay</span>
-    <div class="qrcode"><img src="/images/ALIPay.jpg" alt="Alipay"></div>
-</a>
-
-                
-                
-<a class="button is-success donate">
-    <span class="icon is-small">
-        <i class="fab fa-weixin"></i>
-    </span>
-    <span>Wechat</span>
-    <div class="qrcode"><img src="/images/WXPay.png" alt="Wechat"></div>
-</a>
-
-                
-        </div>
-    </div>
-</div>
-
-
-
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/11/28/%E9%85%8D%E7%BD%AEOpenCV/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">配置OpenCV</span>
-            </a>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-</div>
-                
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level">
-            <div class="level-item has-text-centered" style="flex-shrink: 1">
-                <div>
-                    
-                    <figure class="image is-128x128 has-mb-6">
-                        <img class="" src="/images/touxiang.jpg" alt="Hillo World">
-                    </figure>
-                    
-                    <p class="is-size-4 is-block">
-                        Hillo World
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        Student
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
-                        <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>China,Chongqing</span>
-                    </p>
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level is-mobile">
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Posts
-                    </p>
-                    <a href="/archives">
-                        <p class="title has-text-weight-normal">
-                            16
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Categories
-                    </p>
-                    <a href="/categories">
-                        <p class="title has-text-weight-normal">
-                            0
-                        </p>
-                    </a>
-                </div>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <div>
-                    <p class="heading">
-                        Tags
-                    </p>
-                    <a href="/tags">
-                        <p class="title has-text-weight-normal">
-                            5
-                        </p>
-                    </a>
-                </div>
-            </div>
-        </nav>
-        
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://github.com/sdz630" target="_blank" rel="noopener">
-                Follow</a>
-        </div>
-        
-        
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Github" href="https://github.com/sdz630">
-                
-                <i class="fab fa-github"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Facebook" href="https://facebook.com">
-                
-                <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="Dribbble" href="https://dribbble.com">
-                
-                <i class="fab fa-dribbble"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
-                title="RSS" href="/">
-                
-                <i class="fas fa-rss"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
-</div>
-    
-        
-
-    <div class="card widget column-left is-sticky" id="toc">
-        <div class="card-content">
-            <div class="menu">
-                <h3 class="menu-label">
-                    Catalogue
-                </h3>
-                <ul class="menu-list"><li>
-        <a class="is-flex" href="#Java-c-学习笔记">
-        <span class="has-mr-6">1</span>
-        <span>Java (c++-)学习笔记</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#1">
-        <span class="has-mr-6">1.1</span>
-        <span> day1 4/14 2019</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#Java-核心优势">
-        <span class="has-mr-6">1.1.1</span>
-        <span>Java 核心优势:</span>
-        </a></li><li>
-        <a class="is-flex" href="#Java-各个版本">
-        <span class="has-mr-6">1.1.2</span>
-        <span>Java 各个版本</span>
-        </a></li><li>
-        <a class="is-flex" href="#Java-特点">
-        <span class="has-mr-6">1.1.3</span>
-        <span>Java 特点</span>
-        </a></li><li>
-        <a class="is-flex" href="#JVM-JRE-JDK">
-        <span class="has-mr-6">1.1.4</span>
-        <span>JVM/JRE/JDK</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#2">
-        <span class="has-mr-6">1.2</span>
-        <span>day2 4/15 2019</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#抽象类和抽象方法">
-        <span class="has-mr-6">1.2.1</span>
-        <span>抽象类和抽象方法</span>
-        </a></li><li>
-        <a class="is-flex" href="#接口和多继承">
-        <span class="has-mr-6">1.2.2</span>
-        <span>接口和多继承</span>
-        </a></li><li>
-        <a class="is-flex" href="#内部类">
-        <span class="has-mr-6">1.2.3</span>
-        <span>内部类</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#3">
-        <span class="has-mr-6">1.3</span>
-        <span>day3 4/16 2019 </span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#容器类">
-        <span class="has-mr-6">1.3.1</span>
-        <span>容器类</span>
-        </a></li><li>
-        <a class="is-flex" href="#泛型">
-        <span class="has-mr-6">1.3.2</span>
-        <span>泛型</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#4">
-        <span class="has-mr-6">1.4</span>
-        <span>day4 4/27 2019</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#Java异常类型机制">
-        <span class="has-mr-6">1.4.1</span>
-        <span>Java异常类型机制</span>
-        </a></li><li>
-        <a class="is-flex" href="#处理方法">
-        <span class="has-mr-6">1.4.2</span>
-        <span>处理方法</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#5">
-        <span class="has-mr-6">1.5</span>
-        <span>day5 4/29 2019</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#注解">
-        <span class="has-mr-6">1.5.1</span>
-        <span>注解</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#6">
-        <span class="has-mr-6">1.6</span>
-        <span>day6 5/1 2019</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#反射机制">
-        <span class="has-mr-6">1.6.1</span>
-        <span>反射机制</span>
-        </a></li><li>
-        <a class="is-flex" href="#Class类对象的获取方式">
-        <span class="has-mr-6">1.6.2</span>
-        <span>Class类对象的获取方式</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#7">
-        <span class="has-mr-6">1.7</span>
-        <span>day7 5/2 2019</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#反射的性能">
-        <span class="has-mr-6">1.7.1</span>
-        <span>反射的性能</span>
-        </a></li><li>
-        <a class="is-flex" href="#反射操作泛型">
-        <span class="has-mr-6">1.7.2</span>
-        <span>反射操作泛型</span>
-        </a></li><li>
-        <a class="is-flex" href="#反射操作注解">
-        <span class="has-mr-6">1.7.3</span>
-        <span>反射操作注解</span>
-        </a></li><li>
-        <a class="is-flex" href="#IO流">
-        <span class="has-mr-6">1.7.4</span>
-        <span>IO流</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#8">
-        <span class="has-mr-6">1.8</span>
-        <span>day3 5/14 2019 </span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#final和conset的区别">
-        <span class="has-mr-6">1.8.1</span>
-        <span>final和conset的区别</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#9">
-        <span class="has-mr-6">1.9</span>
-        <span> day1 5/25 2019</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#Java的回调函数">
-        <span class="has-mr-6">1.9.1</span>
-        <span>Java的回调函数</span>
-        </a></li><li>
-        <a class="is-flex" href="#总结">
-        <span class="has-mr-6">1.9.2</span>
-        <span>总结</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#10">
-        <span class="has-mr-6">1.10</span>
-        <span> day10 6/7 2019</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#单例模式">
-        <span class="has-mr-6">1.10.1</span>
-        <span>单例模式</span>
-        </a></li><li>
-        <a class="is-flex" href="#uml绘制">
-        <span class="has-mr-6">1.10.2</span>
-        <span>uml绘制</span>
-        </a></li><li>
-        <a class="is-flex" href="#工厂模式">
-        <span class="has-mr-6">1.10.3</span>
-        <span>工厂模式</span>
-        </a></li><li>
-        <a class="is-flex" href="#原型模式">
-        <span class="has-mr-6">1.10.4</span>
-        <span>原型模式</span>
-        </a></li><li>
-        <a class="is-flex" href="#适配器模式">
-        <span class="has-mr-6">1.10.5</span>
-        <span>适配器模式</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#11">
-        <span class="has-mr-6">1.11</span>
-        <span> day11 6/16 2019</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#桥接模式">
-        <span class="has-mr-6">1.11.1</span>
-        <span>桥接模式</span>
-        </a></li><li>
-        <a class="is-flex" href="#组合模式">
-        <span class="has-mr-6">1.11.2</span>
-        <span>组合模式</span>
-        </a></li><li>
-        <a class="is-flex" href="#装饰模式">
-        <span class="has-mr-6">1.11.3</span>
-        <span>装饰模式</span>
-        </a></li><li>
-        <a class="is-flex" href="#外观模式">
-        <span class="has-mr-6">1.11.4</span>
-        <span>外观模式</span>
-        </a></li><li>
-        <a class="is-flex" href="#享元模式">
-        <span class="has-mr-6">1.11.5</span>
-        <span>享元模式</span>
-        </a></li><li>
-        <a class="is-flex" href="#责任链模式（chain-of-responsibility">
-        <span class="has-mr-6">1.11.6</span>
-        <span>责任链模式（chain of responsibility)</span>
-        </a></li><li>
-        <a class="is-flex" href="#迭代器模式-iterator-游标模式cursor">
-        <span class="has-mr-6">1.11.7</span>
-        <span>迭代器模式 (iterator)/游标模式cursor</span>
-        </a></li><li>
-        <a class="is-flex" href="#中介者模式-Mediator">
-        <span class="has-mr-6">1.11.8</span>
-        <span>中介者模式 (Mediator)</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#12">
-        <span class="has-mr-6">1.12</span>
-        <span> day12 8/6 2019</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#枚举类">
-        <span class="has-mr-6">1.12.1</span>
-        <span>枚举类</span>
-        </a></li></ul></li></ul></li></ul>
-            </div>
-        </div>
-    </div>
-
-
-    
-    
-        <div class="column-right-shadow is-hidden-widescreen ">
-        
-        </div>
-    
-</div>
-
-
-                
-
-            </div>
-        </div>
-    </section>
-    <footer class="footer">
-    <div class="container">
-        <div class="level">
-            <div class="level-start has-text-centered-mobile">
-                <a class="footer-logo is-block has-mb-6" href="/">
-                
-                    <img src="/images/BlogIcon.svg" alt="java入门学习" height="28">
-                
-                </a>
-                <p class="is-size-7">
-                &copy; 2021 Hillo Wolrd&nbsp;
-                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
-                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
-                
-                </p>
-            </div>
-            <div class="level-end">
-            
-                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
-                        
-                        <i class="fab fa-creative-commons"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
-                        
-                        <i class="fab fa-creative-commons-by"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
-                        
-                        <i class="fab fa-github"></i>
-                        
-                    </a>
-                </p>
-                
-                </div>
-            
-            </div>
-        </div>
-    </div>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("en");</script>
-
-
-<script>
-var IcarusThemeSettings = {
-    site: {
-        url: 'https://www.sundongzhe.cn',
-        external_link: {"enable":true,"exclude":[]}
-    },
-    article: {
-        highlight: {
-            clipboard: true,
-            fold: 'unfolded'
-        }
-    }
-};
-</script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
-
-
-
-
-
-<script src="/js/animation.js"></script>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-<script src="/js/gallery.js" defer></script>
-
-
-
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
-            my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        });
-    });
-</script>
-
-
-<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    MathJax.Hub.Config({
-        'HTML-CSS': {
-            matchFontHeight: false
-        },
-        SVG: {
-            matchFontHeight: false
-        },
-        CommonHTML: {
-            matchFontHeight: false
-        },
-        tex2jax: {
-            inlineMath: [
-                ['$','$'],
-                ['\\(','\\)']
-            ]
-        }
-    });
-});
-</script>
-
-
-<a id="back-to-top" title="Back to Top" href="javascript:;">
-    <i class="fas fa-chevron-up"></i>
-</a>
-<script src="/js/back-to-top.js" defer></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="/js/main.js" defer></script>
-
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: 'Posts',
-                PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
-                UNTITLED: '(Untitled)',
+</div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/java/">java</a></div><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_telegram"></a><a class="a2a_button_whatsapp"></a><a class="a2a_button_reddit"></a></div><script src="https://static.addtoany.com/menu/page.js" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2019/11/28/%E9%85%8D%E7%BD%AEOpenCV/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">配置OpenCV</span></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="SOHUCS" sid="2019/11/28/java入门学习/"></div><script charset="utf-8" src="https://changyan.sohu.com/upload/changyan.js"></script><script>window.changyan.api.config({appid: 'cyvHKnKxG',conf: '24871a3a9ed03810283ce5372e913096'});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/avatar.jpg" alt="Hillo World"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Hillo World</p><p class="is-size-6 is-block">Student</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>China,Chongqing</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">16</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">5</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/sdz630" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/sdz630"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://github.com/ppoffice" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">PPOffice</span></span><span class="level-right"><span class="level-item tag">github.com</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-31T07:22:45.610Z">2021-01-31</time></p><p class="title"><a href="/2021/01/31/ios-learn/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-22T03:51:55.078Z">2021-01-22</time></p><p class="title"><a href="/2021/01/22/ios%E5%BC%80%E5%8F%91-%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82-NSURLConnection/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-20T02:20:10.932Z">2021-01-20</time></p><p class="title"><a href="/2021/01/20/ios%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92%EF%BC%88%E5%AE%9E%E9%AA%8C%EF%BC%89/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-17T15:56:31.000Z">2021-01-17</time></p><p class="title"><a href="/2021/01/17/A-Good-Start/">A Good Start</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-05-25T07:13:06.000Z">2020-05-25</time></p><p class="title"><a href="/2020/05/25/%E7%AE%80%E7%AE%80%E5%8D%95%E5%8D%95%E7%9A%84Retrofit%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">简简单单的Retrofit源码分析</a></p></div></article></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Android/"><span class="tag">Android</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/OpenCV/"><span class="tag">OpenCV</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/java/"><span class="tag">java</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/mysql/"><span class="tag">mysql</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/images/hellowolrd.png" height="28"></a><p class="is-size-7"><span>&copy; 2021 Hillo Wolrd</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
             },
-            CONTENT_URL: '/content.json',
-        };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-<script src="/js/insight.js" defer></script>
-<link rel="stylesheet" href="/css/search.css">
-<link rel="stylesheet" href="/css/insight.css">
-    
-</body>
-</html>
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
